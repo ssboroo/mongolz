@@ -1,6 +1,66 @@
 {
   "games": [
     {
+      "id": "sweet-bonanza",
+      "name": "Sweet Bonanza®",
+      "icon": "✦",
+      "art": "slot-art",
+      "provider": "Pragmatic Play",
+      "category": "slots",
+      "kind": "demo-page",
+      "url": "https://www.pragmaticplay.com/en/games/sweet-bonanza-slot/?cur=USD&gamelang=en"
+    },
+    {
+      "id": "sugar-rush",
+      "name": "Sugar Rush",
+      "icon": "✦",
+      "art": "slot-art",
+      "provider": "Pragmatic Play",
+      "category": "slots",
+      "kind": "demo-page",
+      "url": "https://www.pragmaticplay.com/en/games/sugar-rush/?cur=USD&gamelang=en"
+    },
+    {
+      "id": "gates-of-olympus",
+      "name": "Gates of Olympus™",
+      "icon": "ϟ",
+      "art": "slot-art",
+      "provider": "Pragmatic Play",
+      "category": "slots",
+      "kind": "demo-page",
+      "url": "https://www.pragmaticplay.com/en/games/gates-of-olympus/?cur=USD&gamelang=en"
+    },
+    {
+      "id": "big-bass-bonanza",
+      "name": "Big Bass Bonanza™",
+      "icon": "✦",
+      "art": "slot-art",
+      "provider": "Pragmatic Play",
+      "category": "slots",
+      "kind": "demo-page",
+      "url": "https://www.pragmaticplay.com/en/games/big-bass-bonanza/?cur=USD&gamelang=en"
+    },
+    {
+      "id": "sweet-bonanza-1000",
+      "name": "Sweet Bonanza 1000",
+      "icon": "✦",
+      "art": "slot-art",
+      "provider": "Pragmatic Play",
+      "category": "slots",
+      "kind": "demo-page",
+      "url": "https://www.pragmaticplay.com/en/games/sweet-bonanza-1000/?cur=USD&gamelang=en"
+    },
+    {
+      "id": "sugar-rush-super-scatter",
+      "name": "Sugar Rush Super Scatter",
+      "icon": "✦",
+      "art": "slot-art",
+      "provider": "Pragmatic Play",
+      "category": "slots",
+      "kind": "demo-page",
+      "url": "https://www.pragmaticplay.com/en/games/sugar-rush-super-scatter/?cur=USD&gamelang=en"
+    },
+    {
       "id": "gates-of-olympus-2500",
       "name": "Gates of Olympus 2500",
       "icon": "ϟ",

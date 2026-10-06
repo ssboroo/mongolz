@@ -10,6 +10,15 @@ import AuthPanel, {loadSession, type DemoUser} from './AuthPanel';
 
 type Lang='mn'|'en';
 type History={id:string; game:string; bet:number; result:number; at:string};
+const POPULAR_PRAGMATIC=[
+  {id:'sweet-bonanza',name:'Sweet Bonanza®',tag:'POPULAR'},
+  {id:'sugar-rush',name:'Sugar Rush',tag:'HOT'},
+  {id:'gates-of-olympus',name:'Gates of Olympus™',tag:'TOP'},
+  {id:'big-bass-bonanza',name:'Big Bass Bonanza™',tag:'POPULAR'},
+  {id:'sweet-bonanza-1000',name:'Sweet Bonanza 1000',tag:'NEW'},
+  {id:'sugar-rush-super-scatter',name:'Sugar Rush Super Scatter',tag:'HOT'}
+] as const;
+
 const T={
   mn:{casino:'Казино',originals:'MONGOLZ Originals',tables:'Ширээний тоглоом',slots:'Слот',search:'Тоглоом хайх...',balance:'Demo үлдэгдэл',deposit:'Цэнэглэх',heroTop:'MONGOLZ ORIGINAL • 2026 DROP',heroTitle:'Хөх Тэнгэр — шинэ үеийн тоглолт.',heroText:'Монгол хэв маяг, 2026 crypto-casino мэдрэмж, хурдан playable demo — бүгд нэг дор.',play:'Тоглох',featured:'Танд зориулсан сонголт',all:'Бүгд',history:'Түүх',responsible:'Хариуцлагатай тоглолт',demo:'DEMO MODE',cashier:'Demo Cashier',cashierText:'Visa/Mastercard болон crypto урсгалын UI demo. Бодит гүйлгээ хийхгүй.',close:'Хаах',reset:'Demo баланс сэргээх',notice:'Энэ хувилбар бодит мөнгө, бодит карт эсвэл crypto хөрөнгө ашиглахгүй.'},
   en:{casino:'Casino',originals:'MONGOLZ Originals',tables:'Table games',slots:'Slots',search:'Search games...',balance:'Demo balance',deposit:'Cashier',heroTop:'MONGOLZ ORIGINAL • 2026 DROP',heroTitle:'Blue Sky — a new era of play.',heroText:'Mongolian character meets a 2026 crypto-casino feel in a fast, fully playable demo.',play:'Play',featured:'Picked for you',all:'All',history:'History',responsible:'Responsible play',demo:'DEMO MODE',cashier:'Demo Cashier',cashierText:'Visa/Mastercard and crypto payment-flow UI demo. No real transactions.',close:'Close',reset:'Reset demo balance',notice:'This build never processes real money, cards or crypto assets.'}
@@ -56,6 +65,7 @@ export default function CasinoApp(){
   function scrollTo(id:string){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
   function logout(){localStorage.removeItem('mongolz-demo-session-v1');setUser(null);setProfileOpen(false);}
   function openAuth(mode:'login'|'register'='login'){setAuthMode(mode);setAuthOpen(true);}
+  function openPopularSlot(slot:{id:string;name:string}){setActive({id:'slot',icon:'✦',category:'Slots',mn:slot.name,en:slot.name,blurbMn:'Pragmatic Play • local simulation demo',blurbEn:'Pragmatic Play • local simulation demo',tag:'DEMO'});}
 
   return <div className="appShell stakeInspired2026">
     <header className="topbar">
@@ -104,20 +114,15 @@ export default function CasinoApp(){
     </aside>
 
     <main className="content">
-      <section className="stakeWelcome">
-        <div className="stakeWelcomeCopy">
-          <span className="stakeKicker">MONGOLZ • DEMO CASINO</span>
-          <h1>{lang==='mn'?'Тоглоомын шинэ танхимд тавтай морил.':'Welcome to the new MONGOLZ lobby.'}</h1>
-          <p>{lang==='mn'?'Stake.com-ийн compact casino UX-ээс санаа авсан, гэхдээ MONGOLZ-ийн өөрийн Монгол өнгө төрхтэй playable demo платформ.':'A compact casino UX inspired by modern crypto-casino patterns, rebuilt with MONGOLZ identity and playable demos.'}</p>
-          <div className="stakeWelcomeActions">
-            <button className="stakePrimary" onClick={()=>setActive(games[7])}>▶ {lang==='mn'?'Тоглож эхлэх':'Start playing'}</button>
-            <button className="stakeSecondary" onClick={()=>showProviders('')}>◈ {lang==='mn'?'Бүх тоглоом':'All games'}</button>
-          </div>
+      <section className="popularSlotHero2026">
+        <div className="popularHeroCopy2026">
+          <div className="popularHeroBadge2026"><img src="/api/provider-mark?provider=Pragmatic%20Play" alt=""/><span>PRAGMATIC PLAY • POPULAR SLOTS</span></div>
+          <h1>{lang==='mn'?'Дэлхийн хамгийн алдартай слотуудаас.':'Play the slots everyone knows.'}</h1>
+          <p>{lang==='mn'?'Pragmatic Play-ийн official game page дээрх бодит promotional cover-ууд. Demo дарахад MONGOLZ local simulation engine ажиллана.':'Real promotional covers pulled from Pragmatic Play official game pages. Play opens the MONGOLZ local simulation engine.'}</p>
+          <div className="stakeWelcomeActions"><button className="stakePrimary" onClick={()=>openPopularSlot(POPULAR_PRAGMATIC[0])}>▶ {lang==='mn'?'Popular slot тоглох':'Play popular slots'}</button><button className="stakeSecondary" onClick={()=>showProviders('slots')}>{lang==='mn'?'Бүх слот':'All slots'} →</button></div>
+          <div className="popularHeroMeta2026"><span><i/> OFFICIAL COVER SOURCE</span><span>6 FEATURED</span><span>DEMO ONLY</span></div>
         </div>
-        <div className="stakeWelcomeArt">
-          <div className="stakeOrb orbA">◆</div><div className="stakeOrb orbB">♠</div><div className="stakeOrb orbC">◉</div>
-          <div className="stakeHeroBadge"><small>MONGOLZ ORIGINAL</small><b>BLUE SKY CRASH</b><strong>100×</strong><span>MAX DEMO</span></div>
-        </div>
+        <div className="popularCovers2026">{POPULAR_PRAGMATIC.map((slot,i)=><button key={slot.id} className={'popularCover2026 pc'+i} onClick={()=>openPopularSlot(slot)} aria-label={slot.name}><img src={'/api/catalog-cover?id='+slot.id} alt={slot.name}/><span>{slot.tag}</span><div><b>{slot.name}</b><small>Pragmatic Play</small></div><i>▶</i></button>)}</div>
       </section>
 
       <section className="stakeQuickNav">
