@@ -2,8 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'MONGOLZ — Demo Casino',
-  description: 'Монгол / English хоёр хэлтэй, бодит мөнгөгүй casino demo platform.'
+  title: 'MONGOLZ — Casino Demo 2026',
+  description: 'Монгол / English хоёр хэлтэй, 2026 premium crypto-casino inspired playable demo platform.'
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

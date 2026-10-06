@@ -7,8 +7,8 @@ import DemoGame from './DemoGame';
 type Lang='mn'|'en';
 type History={id:string; game:string; bet:number; result:number; at:string};
 const T={
-  mn:{casino:'Казино',originals:'MONGOLZ Originals',tables:'Ширээний тоглоом',slots:'Слот',search:'Тоглоом хайх...',balance:'Demo үлдэгдэл',deposit:'Цэнэглэх',heroTop:'МОНГОЛ ХЭВ МАЯГ • ОЛОН УЛСЫН ТҮВШИН',heroTitle:'Аз, хурд, тоглолт — нэг дор.',heroText:'MONGOLZ бол бодит мөнгөгүй demo casino. Бүх тоглоом browser дээр үнэхээр ажиллана.',play:'Тоглох',featured:'Онцлох тоглоомууд',all:'Бүгд',history:'Түүх',responsible:'Хариуцлагатай тоглолт',demo:'DEMO MODE',cashier:'Demo Cashier',cashierText:'Visa/Mastercard болон crypto урсгалын UI demo. Бодит гүйлгээ хийхгүй.',close:'Хаах',reset:'Demo баланс сэргээх',notice:'Энэ хувилбар бодит мөнгө, бодит карт эсвэл crypto хөрөнгө ашиглахгүй.'},
-  en:{casino:'Casino',originals:'MONGOLZ Originals',tables:'Table games',slots:'Slots',search:'Search games...',balance:'Demo balance',deposit:'Cashier',heroTop:'MONGOL CHARACTER • GLOBAL STANDARD',heroTitle:'Luck, speed and play — in one place.',heroText:'MONGOLZ is a no-real-money casino demo. Every game actually runs in your browser.',play:'Play',featured:'Featured games',all:'All',history:'History',responsible:'Responsible play',demo:'DEMO MODE',cashier:'Demo Cashier',cashierText:'Visa/Mastercard and crypto payment-flow UI demo. No real transactions.',close:'Close',reset:'Reset demo balance',notice:'This build never processes real money, cards or crypto assets.'}
+  mn:{casino:'Казино',originals:'MONGOLZ Originals',tables:'Ширээний тоглоом',slots:'Слот',search:'Тоглоом хайх...',balance:'Demo үлдэгдэл',deposit:'Цэнэглэх',heroTop:'MONGOLZ ORIGINAL • 2026 DROP',heroTitle:'Хөх Тэнгэр — шинэ үеийн тоглолт.',heroText:'Монгол хэв маяг, 2026 crypto-casino мэдрэмж, хурдан playable demo — бүгд нэг дор.',play:'Тоглох',featured:'Танд зориулсан сонголт',all:'Бүгд',history:'Түүх',responsible:'Хариуцлагатай тоглолт',demo:'DEMO MODE',cashier:'Demo Cashier',cashierText:'Visa/Mastercard болон crypto урсгалын UI demo. Бодит гүйлгээ хийхгүй.',close:'Хаах',reset:'Demo баланс сэргээх',notice:'Энэ хувилбар бодит мөнгө, бодит карт эсвэл crypto хөрөнгө ашиглахгүй.'},
+  en:{casino:'Casino',originals:'MONGOLZ Originals',tables:'Table games',slots:'Slots',search:'Search games...',balance:'Demo balance',deposit:'Cashier',heroTop:'MONGOLZ ORIGINAL • 2026 DROP',heroTitle:'Blue Sky — a new era of play.',heroText:'Mongolian character meets a 2026 crypto-casino feel in a fast, fully playable demo.',play:'Play',featured:'Picked for you',all:'All',history:'History',responsible:'Responsible play',demo:'DEMO MODE',cashier:'Demo Cashier',cashierText:'Visa/Mastercard and crypto payment-flow UI demo. No real transactions.',close:'Close',reset:'Reset demo balance',notice:'This build never processes real money, cards or crypto assets.'}
 } as const;
 
 export default function CasinoApp(){
@@ -42,11 +42,11 @@ export default function CasinoApp(){
   }
   function reset(){ setBalance(10000); setHistory([]); }
 
-  return <div className="appShell">
+  return <div className="appShell ui2026">
     <header className="topbar">
-      <button className="brand" onClick={()=>setActive(null)}><span className="brandMark">M</span><span><b>MONGOLZ</b><small>CASINO DEMO</small></span></button>
+      <button className="brand" onClick={()=>setActive(null)}><span className="brandMark">M</span><span><b>MONGOLZ</b><small>CASINO / 2026</small></span></button>
       <div className="searchWrap"><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={t.search}/></div>
-      <div className="topActions">
+      <div className="topActions"><span className="onlinePill"><i/>ONLINE</span>
         <div className="langSwitch"><button className={lang==='mn'?'on':''} onClick={()=>setLang('mn')}>MN</button><button className={lang==='en'?'on':''} onClick={()=>setLang('en')}>EN</button></div>
         <button className="balanceButton" onClick={()=>setCashier(true)}><span>{t.balance}</span><b>₮ {balance.toLocaleString()}</b></button>
         <button className="goldButton" onClick={()=>setCashier(true)}>{t.deposit}</button>
@@ -73,11 +73,11 @@ export default function CasinoApp(){
     <main className="content">
       <section className="heroMongolz">
         <div className="heroPattern"/>
-        <div className="heroCopy"><span className="eyebrow">{t.heroTop}</span><h1>{t.heroTitle}</h1><p>{t.heroText}</p><div className="heroButtons"><button className="goldButton big" onClick={()=>setActive(games[7])}>🚀 {lang==='mn'?'Crash тоглох':'Play Crash'}</button><span className="noMoney">● {t.notice}</span></div></div>
-        <div className="heroVisual"><div className="coin c1">ᠮ</div><div className="coin c2">★</div><div className="mountain">M</div><div className="heroChip"><small>MONGOLZ ORIGINAL</small><b>ХӨХ ТЭНГЭР</b><strong>CRASH</strong></div></div>
+        <div className="heroCopy"><span className="eyebrow">{t.heroTop}</span><h1>{t.heroTitle}</h1><p>{t.heroText}</p><div className="heroButtons"><button className="goldButton big" onClick={()=>setActive(games[7])}>▶ {lang==='mn'?'Одоо тоглох':'Play now'}</button><span className="noMoney"><i/> LIVE DEMO • 8 GAMES</span></div></div>
+        <div className="heroVisual"><div className="coin c1">ᠮ</div><div className="coin c2">★</div><div className="mountain">M</div><div className="heroChip"><small>2026 / MONGOLZ ORIGINAL</small><b>ХӨХ ТЭНГЭР</b><strong>3.42×</strong><em>CRASH</em></div></div>
       </section>
 
-      <section className="trustStrip"><span>✦ 8 {lang==='mn'?'ажилладаг demo тоглоом':'playable demo games'}</span><span>◎ Local demo wallet</span><span>◇ MN / EN</span><span>✓ No real money</span></section>
+      <section className="trustStrip"><span><i className="pulseDot"/> LIVE DEMO</span><span>◆ MONGOLZ ORIGINALS</span><span>◉ LOCAL WALLET</span><span>文 MN / EN</span><span>✓ NO REAL MONEY</span></section>
 
       <section className="gamesSection">
         <div className="sectionTitle"><div><span className="eyebrow">MONGOLZ COLLECTION</span><h2>{t.featured}</h2></div><div className="tabs">{['All','Originals','Table','Slots'].map(c=><button key={c} onClick={()=>setCategory(c)} className={category===c?'active':''}>{c==='All'?t.all:c==='Originals'?t.originals:c==='Table'?t.tables:t.slots}</button>)}</div></div>
