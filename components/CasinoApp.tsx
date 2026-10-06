@@ -47,9 +47,10 @@ export default function CasinoApp(){
   function reset(){ setBalance(10000); setHistory([]); }
   function showProviders(mode=''){ setProviderCategory(mode); requestAnimationFrame(()=>document.getElementById('provider-catalog')?.scrollIntoView({behavior:'smooth',block:'start'})); }
 
-  return <div className="appShell ui2026">
+  return <div className="appShell stakeInspired2026">
     <header className="topbar">
-      <button className="brand" onClick={()=>setActive(null)}><span className="brandMark">M</span><span><b>MONGOLZ</b><small>CASINO / 2026</small></span></button>
+      <button className="brand" onClick={()=>{setActive(null);window.scrollTo({top:0,behavior:'smooth'})}}><span className="brandMark">M</span><span><b>MONGOLZ</b><small>CASINO DEMO</small></span></button>
+      <div className="modeSwitch"><button className="active">♠ {lang==='mn'?'Казино':'Casino'}</button><button disabled>⚽ {lang==='mn'?'Спорт':'Sports'} <small>SOON</small></button></div>
       <div className="searchWrap"><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={t.search}/></div>
       <div className="topActions"><span className="onlinePill"><i/>ONLINE</span>
         <div className="langSwitch"><button className={lang==='mn'?'on':''} onClick={()=>setLang('mn')}>MN</button><button className={lang==='en'?'on':''} onClick={()=>setLang('en')}>EN</button></div>
@@ -76,15 +77,46 @@ export default function CasinoApp(){
     </aside>
 
     <main className="content">
-      <section className="heroMongolz">
-        <div className="heroPattern"/>
-        <div className="heroCopy"><span className="eyebrow">{t.heroTop}</span><h1>{t.heroTitle}</h1><p>{t.heroText}</p><div className="heroButtons"><button className="goldButton big" onClick={()=>setActive(games[7])}>▶ {lang==='mn'?'Одоо тоглох':'Play now'}</button><span className="noMoney"><i/> LIVE DEMO • 8 GAMES</span></div></div>
-        <div className="heroVisual"><div className="coin c1">ᠮ</div><div className="coin c2">★</div><div className="mountain">M</div><div className="heroChip"><small>2026 / MONGOLZ ORIGINAL</small><b>ХӨХ ТЭНГЭР</b><strong>3.42×</strong><em>CRASH</em></div></div>
+      <section className="stakeWelcome">
+        <div className="stakeWelcomeCopy">
+          <span className="stakeKicker">MONGOLZ • DEMO CASINO</span>
+          <h1>{lang==='mn'?'Тоглоомын шинэ танхимд тавтай морил.':'Welcome to the new MONGOLZ lobby.'}</h1>
+          <p>{lang==='mn'?'Stake.com-ийн compact casino UX-ээс санаа авсан, гэхдээ MONGOLZ-ийн өөрийн Монгол өнгө төрхтэй playable demo платформ.':'A compact casino UX inspired by modern crypto-casino patterns, rebuilt with MONGOLZ identity and playable demos.'}</p>
+          <div className="stakeWelcomeActions">
+            <button className="stakePrimary" onClick={()=>setActive(games[7])}>▶ {lang==='mn'?'Тоглож эхлэх':'Start playing'}</button>
+            <button className="stakeSecondary" onClick={()=>showProviders('')}>◈ {lang==='mn'?'Бүх тоглоом':'All games'}</button>
+          </div>
+        </div>
+        <div className="stakeWelcomeArt">
+          <div className="stakeOrb orbA">◆</div><div className="stakeOrb orbB">♠</div><div className="stakeOrb orbC">◉</div>
+          <div className="stakeHeroBadge"><small>MONGOLZ ORIGINAL</small><b>BLUE SKY CRASH</b><strong>100×</strong><span>MAX DEMO</span></div>
+        </div>
       </section>
 
-      <section className="trustStrip"><span><i className="pulseDot"/> LIVE DEMO</span><span>◆ MONGOLZ ORIGINALS</span><span>◉ LOCAL WALLET</span><span>文 MN / EN</span><span>✓ NO REAL MONEY</span></section>
+      <section className="stakeQuickNav">
+        <button onClick={()=>setCategory('All')}>⌂ {lang==='mn'?'Казино':'Casino'}</button>
+        <button onClick={()=>setCategory('Originals')}>◆ Originals</button>
+        <button onClick={()=>showProviders('slots')}>✦ {lang==='mn'?'Слот':'Slots'}</button>
+        <button onClick={()=>showProviders('live')}>◉ {lang==='mn'?'Live казино':'Live Casino'}</button>
+        <button onClick={()=>showProviders('table')}>♠ {lang==='mn'?'Ширээний':'Table Games'}</button>
+        <button onClick={()=>document.getElementById('trust-compliance')?.scrollIntoView({behavior:'smooth'})}>✓ {lang==='mn'?'Шалгалт':'Trust'}</button>
+      </section>
+
+      <section className="stakeRailSection">
+        <div className="stakeSectionHead"><div><span>🔥</span><h2>{lang==='mn'?'Тренд тоглоомууд':'Trending Games'}</h2></div><button onClick={()=>showProviders('')}>{lang==='mn'?'Бүгдийг үзэх':'View all'} →</button></div>
+        <div className="stakeGameRail">{games.map((g,i)=><button key={g.id} onClick={()=>setActive(g)} className="stakeRailCard"><div className={`stakeRailArt rail-${i%8}`}><span>{g.icon}</span><i>▶</i></div><b>{lang==='mn'?g.mn:g.en}</b><small><em/> {12+i*7} demo sessions</small></button>)}</div>
+      </section>
 
       <WinFeed lang={lang} history={history}/>
+
+      <section className="stakePromoSection">
+        <div className="stakeSectionHead"><div><span>🎁</span><h2>{lang==='mn'?'Онцлох хэсгүүд':'Promotions & Highlights'}</h2></div></div>
+        <div className="stakePromos">
+          <button onClick={()=>setActive(games[7])} className="promoCard promoBlue"><small>MONGOLZ ORIGINALS</small><b>Blue Sky Crash</b><span>{lang==='mn'?'100× хүртэл demo multiplier':'Demo multiplier up to 100×'}</span><strong>PLAY →</strong></button>
+          <button onClick={()=>showProviders('live')} className="promoCard promoPurple"><small>LIVE COLLECTION</small><b>{lang==='mn'?'Live casino hub':'Live casino hub'}</b><span>{lang==='mn'?'Evolution / Pragmatic нэртэй simulation cards':'Provider-labelled simulation cards in one lobby'}</span><strong>EXPLORE →</strong></button>
+          <button onClick={()=>document.getElementById('trust-compliance')?.scrollIntoView({behavior:'smooth'})} className="promoCard promoGold"><small>TRUST CENTER</small><b>{lang==='mn'?'Ил тод demo mode':'Transparent demo mode'}</b><span>{lang==='mn'?'Хуурамч лиценз, badge ашиглахгүй':'No fabricated licence badges or claims'}</span><strong>VIEW →</strong></button>
+        </div>
+      </section>
 
       <section className="gamesSection">
         <div className="sectionTitle"><div><span className="eyebrow">MONGOLZ COLLECTION</span><h2>{t.featured}</h2></div><div className="tabs">{['All','Originals','Table','Slots'].map(c=><button key={c} onClick={()=>setCategory(c)} className={category===c?'active':''}>{c==='All'?t.all:c==='Originals'?t.originals:c==='Table'?t.tables:t.slots}</button>)}</div></div>
@@ -95,7 +127,7 @@ export default function CasinoApp(){
 
       <ComplianceCenter lang={lang}/>
 
-      <footer><div className="footerBrand">MONGOLZ</div><p>{t.notice}</p><span>Demo build • v1.0</span></footer>
+      <footer className="stakeFooter"><div className="footerBrand">MONGOLZ</div><div className="footerCols"><div><b>CASINO</b><span>Originals</span><span>Slots</span><span>Live Casino</span><span>Table Games</span></div><div><b>SUPPORT</b><span>Demo Help</span><span>Fairness Info</span><span>Responsible Play</span><span>18+</span></div><div><b>ABOUT</b><span>Trust Center</span><span>MN / EN</span><span>Local Demo Wallet</span><span>No Real Money</span></div></div><p>{t.notice}</p><small>© 2026 MONGOLZ Demo Casino</small></footer>
     </main>
 
     <nav className="mobileNav"><button className="providerMobileLink" onClick={()=>showProviders('')}>◈<span>{lang==='mn'?'Provider':'Providers'}</span></button><button onClick={()=>{setCategory('All');window.scrollTo({top:0,behavior:'smooth'})}}>⌂<span>{t.casino}</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>setLang(lang==='mn'?'en':'mn')}>文<span>{lang.toUpperCase()}</span></button></nav>
