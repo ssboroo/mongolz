@@ -190,3 +190,136 @@
 .supportCards2026{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0}.supportCards2026 button{padding:13px;border:1px solid #274453;border-radius:9px;background:#0d1d27;color:#d6e3ea;text-align:left;cursor:pointer}.supportCards2026 b,.supportCards2026 span{display:block}.supportCards2026 b{font-size:8px}.supportCards2026 span{margin-top:5px;color:#698190;font-size:7px;line-height:1.4}
 @media(max-width:1050px){.premiumSidebar2026 .sideLabel2026,.premiumSidebar2026 .sideGuest2026,.premiumSidebar2026 .sideUserCard2026>span:nth-child(2),.premiumSidebar2026 .sideUserCard2026>i,.premiumSidebar2026 .sideSafety2026,.premiumSidebar2026 nav button>em,.premiumSidebar2026 nav button>small{display:none}.premiumSidebar2026 .sideAccount2026{display:grid;place-items:center}.premiumSidebar2026 .sideUserCard2026{width:56px;justify-content:center}.premiumSidebar2026 .sideAvatar2026{margin:auto}.premiumSidebar2026 .sideSection2026{padding:5px 0}.premiumSidebar2026 .sideBottom2026 .demoBadge{font-size:0}.premiumSidebar2026 .sideBottom2026 .demoBadge i{margin:0}.stakeInspired2026 .premiumSidebar2026 nav button>i{font-size:15px}.stakeInspired2026 .premiumSidebar2026 nav button>span{font-size:6px}}
 @media(max-width:760px){.headerAuth2026 .headerLogin2026{display:none}.headerAuth2026 button{padding:0 8px}.headerUser2026 b{display:none}.supportCards2026{grid-template-columns:1fr}.profileStats2026{grid-template-columns:1fr 1fr}}
+
+
+/* ===== MONGOLZ SIGNATURE THEME · OBSIDIAN / MINT / CHAMPAGNE ===== */
+:root{
+  --mz-ink:#080b0c;
+  --mz-ink-2:#0d1213;
+  --mz-panel:#111819;
+  --mz-panel-2:#162122;
+  --mz-panel-3:#1b2929;
+  --mz-line:#273534;
+  --mz-line-soft:#1b2625;
+  --mz-text:#f4f7f3;
+  --mz-muted:#7f918c;
+  --mz-mint:#5cf2c2;
+  --mz-mint-2:#2dd6a3;
+  --mz-teal:#12433d;
+  --mz-teal-2:#1d5c53;
+  --mz-gold:#d9bd78;
+  --mz-gold-2:#a9803f;
+  --mz-danger:#ef7c86;
+  --mz-font-ui:var(--font-ui),Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mz-font-display:var(--font-display),Unbounded,var(--font-ui),sans-serif;
+}
+html{background:var(--mz-ink)}
+body{font-family:var(--mz-font-ui);font-feature-settings:"ss01" 1,"cv02" 1;background:var(--mz-ink);color:var(--mz-text)}
+button,input,select,textarea{font-family:var(--mz-font-ui)}
+h1,h2,h3,.brand b,.footerBrand,.stakeHeroBadge strong,.maxSpotlight2026 b,.providerCount2026 b,.diceNumber,.crashGraph b{font-family:var(--mz-font-display)}
+.brand b,.footerBrand{text-transform:uppercase}
+.stakeInspired2026{
+  --stake-bg:var(--mz-ink);
+  --stake-panel:var(--mz-panel);
+  --stake-panel2:var(--mz-panel-2);
+  --stake-line:var(--mz-line);
+  --stake-text:var(--mz-text);
+  --stake-muted:var(--mz-muted);
+  --stake-blue:var(--mz-mint-2);
+  --stake-blue2:var(--mz-mint);
+  --stake-green:var(--mz-mint);
+  background:
+    radial-gradient(circle at 80% -12%,#123b363f 0,transparent 28%),
+    radial-gradient(circle at 18% 34%,#6c542117 0,transparent 24%),
+    var(--mz-ink);
+}
+.stakeInspired2026:before{background:radial-gradient(circle at 78% -12%,#174a432f 0,transparent 30%),var(--mz-ink)}
+.stakeInspired2026 .topbar{background:#0b1010ed;border-color:#20302e;box-shadow:0 5px 24px #0006}
+.stakeInspired2026 .brandMark{
+  border:1px solid #39655e;
+  background:linear-gradient(145deg,#153d37,#0c1716);
+  color:var(--mz-mint);
+  box-shadow:inset 0 0 0 1px #ffffff05,0 0 24px #2dd6a318
+}
+.stakeInspired2026 .brand b{font-size:13px;letter-spacing:2.2px;color:#f3f8f5}
+.stakeInspired2026 .brand small{color:#67807a;letter-spacing:1.6px}
+.modeSwitch{background:#070c0d}.modeSwitch button{color:#70847f}.modeSwitch .active{background:#183a36;color:#eafff8}.modeSwitch small{color:var(--mz-mint)}
+.stakeInspired2026 .searchWrap{background:#0b1213;border:1px solid #1c2928}.stakeInspired2026 .searchWrap:focus-within{border-color:#35645c;box-shadow:0 0 0 3px #38d7aa10}
+.stakeInspired2026 .balanceButton{background:#0b1213;border:1px solid #1d2b29}.stakeInspired2026 .balanceButton b{color:#e9f7f2}
+.stakeInspired2026 .goldButton,.headerRegister2026,.authSubmit2026,.stakePrimary{
+  background:linear-gradient(135deg,var(--mz-mint),var(--mz-mint-2));
+  color:#062019;
+  border:0;
+  box-shadow:0 10px 28px #28d7a524
+}
+.stakeInspired2026 .goldButton:hover,.headerRegister2026:hover,.authSubmit2026:hover,.stakePrimary:hover{filter:brightness(1.06)}
+.headerLogin2026{border-color:#2a423e;background:#101a1b;color:#c7d8d3}
+.headerUser2026{border-color:#2c4944;background:#101b1b}.headerUser2026 span{background:#1b5149;color:#dffff6}
+.stakeInspired2026 .langSwitch{background:#0b1213;border:1px solid #1d2a28}.stakeInspired2026 .langSwitch .on{background:#1a3531;color:#ecfff9}
+.stakeInspired2026 .sidebar{background:#0d1415;border-color:#1d2b2a}
+.sideAccount2026,.sideSection2026{border-color:#1b2928}
+.sideGuest2026,.sideUserCard2026{border-color:#28443f;background:linear-gradient(145deg,#132624,#0f1a1b)}
+.sideAvatar2026{background:linear-gradient(145deg,#1d665b,#123d37);color:#dffff6}
+.sideGuest2026 .primary{background:linear-gradient(135deg,var(--mz-mint),var(--mz-mint-2))!important;border-color:transparent!important;color:#062019!important}
+.sideLabel2026{color:#5c716c}
+.stakeInspired2026 .premiumSidebar2026 nav button>i{color:#72d8bb}
+.stakeInspired2026 .sidebar nav button:hover,.stakeInspired2026 .sidebar nav button.active,.stakeInspired2026 .providerNavLink:hover{
+  background:linear-gradient(90deg,#17332f,#111f20);
+  color:#f2fff9;
+  box-shadow:none
+}
+.stakeInspired2026 .sidebar nav button.active{box-shadow:inset 3px 0 var(--mz-mint)}
+.stakeInspired2026 .premiumSidebar2026 nav button>em{background:#18372c;color:#6cf0b8}
+.sideBottom2026{border-color:#1b2928!important}.sideSafety2026{background:#0a1212;color:#70847e}.sideSafety2026 b{color:var(--mz-gold)}
+.demoBadge i,.onlinePill i,.pulseDot,.demoFlag2026 i{background:var(--mz-mint);box-shadow:0 0 13px #5cf2c2}
+.stakeWelcome{
+  background:
+    radial-gradient(circle at 80% 18%,#27584f 0,transparent 30%),
+    linear-gradient(120deg,#142724 0,#0f1b1c 47%,#17302e 100%);
+  border:1px solid #28413d;
+  box-shadow:0 20px 48px #0007
+}
+.stakeWelcome:after{opacity:.65}
+.stakeKicker,.eyebrow{color:#81d9c1}
+.stakeWelcome h1{font-family:var(--mz-font-display);font-weight:650;letter-spacing:-1.6px;color:#f5fbf7}
+.stakeWelcome p{color:#8ea49f}
+.stakeSecondary{background:#1a2c2b;color:#d1dfdb;border:1px solid #29413e}
+.orbA{background:linear-gradient(145deg,#3fe1b4,#18594e);color:#eafff8}
+.orbB{background:linear-gradient(145deg,#d8b867,#745522);color:#fff7dc}
+.orbC{background:linear-gradient(145deg,#337b70,#173d38);color:#eafff8}
+.stakeHeroBadge{border-color:#41615b;background:#0a1111d9}.stakeHeroBadge strong{color:var(--mz-mint)}.stakeHeroBadge b{font-family:var(--mz-font-display);font-size:9px}
+.stakeQuickNav{background:#10191a;border:1px solid #1d2b29}.stakeQuickNav button{color:#7f928d}.stakeQuickNav button:hover{background:#18312e;color:#f3fffb}
+.stakeSectionHead h2,.sectionTitle h2,.providerHeader2026 h2,.complianceHead2026 h2,.winHeadline2026 h2{font-family:var(--mz-font-display);font-weight:620;letter-spacing:-.55px}
+.stakeRailArt{background:radial-gradient(circle at 62% 20%,#2c675c,#183632 42%,#0d1919)}
+.rail-1,.rail-5{background:radial-gradient(circle at 60% 20%,#5a3f2e,#33261d 42%,#171310)}
+.rail-2,.rail-6{background:radial-gradient(circle at 60% 20%,#67572d,#3c321d 42%,#18150f)}
+.rail-3,.rail-7{background:radial-gradient(circle at 60% 20%,#265a50,#17372f 42%,#0f1917)}
+.stakeRailArt i,.playCircle,.providerPlay2026{background:var(--mz-mint);color:#062019}
+.stakeRailCard>small em{background:var(--mz-mint)}
+.promoBlue{background:linear-gradient(135deg,#185448,#102c28)}.promoPurple{background:linear-gradient(135deg,#38453f,#202926)}.promoGold{background:linear-gradient(135deg,#78602e,#3c311a)}
+.winFeed2026,.stakeInspired2026 .winFeed2026{background:radial-gradient(circle at 86% 18%,#254c4433,transparent 33%),#10191a;border-color:#243532}
+.maxSpotlight2026{border-color:#5d5234;background:linear-gradient(135deg,#2a2517,#141815);box-shadow:0 12px 32px #0004}.maxSpotlight2026 small{color:#b59b60}.maxSpotlight2026 b{color:var(--mz-gold)}
+.winRail2026 article{background:#111a1b;border-color:#223331}.winRail2026 article.topWin{border-color:#675735;background:linear-gradient(135deg,#282218,#111717)}.winAvatar2026{background:#183832;color:#96ead0}.topWin .winAvatar2026{background:#453a22;color:#f1d68e}.winRail2026 strong{color:var(--mz-mint)}.topWin strong{color:var(--mz-gold)}
+.stakeInspired2026 .gameArt,.providerCover2026{border-color:#223330;background:#101a1a}.stakeInspired2026 .gameCard:hover .gameArt,.providerCard2026:hover .providerCover2026{border-color:#3c655d;box-shadow:0 16px 38px #0008}
+.stakeInspired2026 .gameInfo b,.providerInfoBrand2026 b{font-weight:750}
+.providerSection2026{border-color:#1a2927}.providerCount2026,.providerLogoRail2026>button,.providerCats2026 button,.providerChips2026 button{background:#10191a;border-color:#223331}
+.providerLogoRail2026>button:hover,.providerLogoRail2026>button.active,.providerCats2026 button.active,.providerChips2026 button.active{border-color:#3f6c63;background:#18332f;color:#effff9}
+.providerSearch2026 input,.providerSearch2026 select{background:#0d1516;border-color:#243632}.providerInfo2026 button{color:#6fe2c1}
+.simulationNote2026{background:#0d1516;border-color:#223330;color:#70847f}
+.compliance2026,.stakeInspired2026 .compliance2026{background:#10191a;border-color:#263734}.trustSeal2026{background:#0c1415;border-color:#2d433f}.trustSeal2026 span{color:var(--mz-mint)}.complianceGrid2026 article{background:#111a1b;border-color:#223331}.complianceIcon2026{background:#17332f;color:#7be4c5}.licenceNotice2026{background:#211b10;border-color:#594925}.licenceNotice2026 b{color:var(--mz-gold)}
+.gameModal,.sheet,.stakeInspired2026 .gameModal,.stakeInspired2026 .sheet{background:linear-gradient(145deg,#121b1c,#090e0f);border-color:#263a36}.gameBoard{background:radial-gradient(circle at 50% 20%,#18312d,#090e0f 68%);border-color:#21322f}
+.gameAction{background:linear-gradient(135deg,var(--mz-mint),var(--mz-mint-2));color:#062019}.gameAction.cash{background:linear-gradient(135deg,#d9bd78,#a9803f);color:#1c1508}
+.maxPotential{border-color:#3e5a54;background:#0c1515;color:#718781}.maxPotential b{color:var(--mz-mint)}
+.authSheet2026,.profileSheet2026,.supportSheet2026{background:linear-gradient(145deg,#111a1b,#090e0f)}
+.authMark2026{background:#153d36;color:#dffff6}.authTabs2026{background:#091111}.authTabs2026 .active{background:#18332f;color:#f2fff9}
+.authPanel2026 input{background:#0a1212;border-color:#2a403c}.authPanel2026 input:focus{border-color:#4f9c8d;box-shadow:0 0 0 3px #5cf2c211}
+.profileHero2026>span{background:linear-gradient(145deg,#25695c,#143d36)}.profileStats2026>div,.profileActions2026 button,.supportCards2026 button{background:#0d1717;border-color:#263b37}
+.profileNote2026{background:#1b2b20;color:#9bc79d}
+.stakeFooter{border-color:#1c2928!important}.footerBrand{color:var(--mz-mint)}
+.mobileNav{background:#0d1415f2!important;border-color:#243633!important}.mobileWallet{background:linear-gradient(145deg,var(--mz-mint),#2bb887)!important;color:#062019!important;border-color:#6ff2cb!important;box-shadow:0 10px 25px #1ba97d3a!important}
+::selection{background:#55e9bd;color:#07120f}
+*{scrollbar-color:#29453f #0b1111}
+@media(max-width:760px){
+  .stakeWelcome h1{font-size:28px;line-height:1.08;letter-spacing:-1px}
+  .stakeSectionHead h2,.sectionTitle h2,.providerHeader2026 h2,.complianceHead2026 h2,.winHeadline2026 h2{font-size:14px}
+}
