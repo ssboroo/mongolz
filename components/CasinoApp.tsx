@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { games, type GameId, type GameMeta } from '@/lib/games';
 import DemoGame from './DemoGame';
+import ProviderSection from './ProviderSection';
 
 type Lang='mn'|'en';
 type History={id:string; game:string; bet:number; result:number; at:string};
@@ -21,6 +22,7 @@ export default function CasinoApp(){
   const [hydrated,setHydrated]=useState(false);
   const [cashier,setCashier]=useState(false);
   const [historyOpen,setHistoryOpen]=useState(false);
+  const [providerCategory,setProviderCategory]=useState('');
   const t=T[lang];
 
   useEffect(()=>{
@@ -41,6 +43,7 @@ export default function CasinoApp(){
     setHistory(h=>[{id:crypto.randomUUID(),game,bet,result,at:new Date().toLocaleTimeString()},...h].slice(0,50));
   }
   function reset(){ setBalance(10000); setHistory([]); }
+  function showProviders(mode=''){ setProviderCategory(mode); requestAnimationFrame(()=>document.getElementById('provider-catalog')?.scrollIntoView({behavior:'smooth',block:'start'})); }
 
   return <div className="appShell ui2026">
     <header className="topbar">
@@ -55,9 +58,9 @@ export default function CasinoApp(){
 
     <aside className="sidebar">
       <nav>
-        <a className="providerNavLink" href="/providers">◈ <span>{lang==='mn'?'Provider тоглоомууд':'Provider games'}</span></a>
-        <a className="providerNavLink" href="/live">◉ <span>{lang==='mn'?'Live казино':'Live casino'}</span></a>
-        <a className="providerNavLink" href="/slots">✦ <span>{lang==='mn'?'Provider слот':'Provider slots'}</span></a>
+        <button className="providerNavLink" onClick={()=>showProviders('')}>◈ <span>{lang==='mn'?'Provider тоглоомууд':'Provider games'}</span></button>
+        <button className="providerNavLink" onClick={()=>showProviders('live')}>◉ <span>{lang==='mn'?'Live казино':'Live casino'}</span></button>
+        <button className="providerNavLink" onClick={()=>showProviders('slots')}>✦ <span>{lang==='mn'?'Provider слот':'Provider slots'}</span></button>
         <button onClick={()=>setCategory('All')} className={category==='All'?'active':''}>⌂ <span>{t.casino}</span></button>
         <button onClick={()=>setCategory('Originals')} className={category==='Originals'?'active':''}>◆ <span>{t.originals}</span></button>
         <button onClick={()=>setCategory('Table')} className={category==='Table'?'active':''}>♠ <span>{t.tables}</span></button>
@@ -84,10 +87,12 @@ export default function CasinoApp(){
         <div className="gameGrid">{visible.map((g,i)=><button className={`gameCard game-${i%8}`} key={g.id} onClick={()=>setActive(g)}><div className="gameArt"><span className="tag">{g.tag}</span><div className="gameIcon">{g.icon}</div><div className="ornament">◆ ◇ ◆</div><span className="playCircle">▶</span></div><div className="gameInfo"><b>{lang==='mn'?g.mn:g.en}</b><span>{lang==='mn'?g.blurbMn:g.blurbEn}</span></div></button>)}</div>
       </section>
 
+      <ProviderSection lang={lang} balance={balance} settle={settle} initialCategory={providerCategory}/>
+
       <footer><div className="footerBrand">MONGOLZ</div><p>{t.notice}</p><span>Demo build • v1.0</span></footer>
     </main>
 
-    <nav className="mobileNav"><a className="providerMobileLink" href="/providers">◈<span>{lang==='mn'?'Provider':'Providers'}</span></a><button onClick={()=>setCategory('All')}>⌂<span>{t.casino}</span></button><button onClick={()=>setCategory('Originals')}>◆<span>Originals</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>setLang(lang==='mn'?'en':'mn')}>文<span>{lang.toUpperCase()}</span></button></nav>
+    <nav className="mobileNav"><button className="providerMobileLink" onClick={()=>showProviders('')}>◈<span>{lang==='mn'?'Provider':'Providers'}</span></button><button onClick={()=>{setCategory('All');window.scrollTo({top:0,behavior:'smooth'})}}>⌂<span>{t.casino}</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>setLang(lang==='mn'?'en':'mn')}>文<span>{lang.toUpperCase()}</span></button></nav>
 
     {active&&<div className="modalBackdrop"><div className="gameModal"><button className="x" onClick={()=>setActive(null)}>×</button><DemoGame game={active} lang={lang} balance={balance} settle={settle}/></div></div>}
     {cashier&&<div className="modalBackdrop"><div className="sheet"><button className="x" onClick={()=>setCashier(false)}>×</button><span className="eyebrow">SANDBOX</span><h2>{t.cashier}</h2><p>{t.cashierText}</p><div className="paymentGrid"><div><b>VISA</b><span>Demo card</span></div><div><b>Mastercard</b><span>Demo card</span></div><div><b>USDT</b><span>TRC20 / ERC20 UI</span></div><div><b>USDC</b><span>Crypto UI</span></div><div><b>BTC</b><span>Bitcoin UI</span></div><div><b>ETH</b><span>Ethereum UI</span></div></div><div className="noticeBox">⚠ {t.notice}</div><button className="outlineButton" onClick={reset}>{t.reset}</button></div></div>}
