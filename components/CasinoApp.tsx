@@ -18,15 +18,17 @@ export default function CasinoApp(){
   const [query,setQuery]=useState('');
   const [balance,setBalance]=useState(10000);
   const [history,setHistory]=useState<History[]>([]);
+  const [hydrated,setHydrated]=useState(false);
   const [cashier,setCashier]=useState(false);
   const [historyOpen,setHistoryOpen]=useState(false);
   const t=T[lang];
 
   useEffect(()=>{
     const raw=localStorage.getItem('mongolz-demo-state');
-    if(raw){ try{ const s=JSON.parse(raw); if(typeof s.balance==='number')setBalance(s.balance); if(Array.isArray(s.history))setHistory(s.history); }catch{} }
+    if(raw){ try{ const s=JSON.parse(raw); if(Number.isFinite(s.balance)&&s.balance>=0)setBalance(s.balance); if(Array.isArray(s.history))setHistory(s.history); }catch{} }
+    setHydrated(true);
   },[]);
-  useEffect(()=>{ localStorage.setItem('mongolz-demo-state',JSON.stringify({balance,history})); },[balance,history]);
+  useEffect(()=>{ if(!hydrated)return;localStorage.setItem('mongolz-demo-state',JSON.stringify({balance,history})); },[balance,history,hydrated]);
 
   const visible=useMemo(()=>games.filter(g=>{
     if(category!=='All' && g.category!==category)return false;
@@ -53,6 +55,9 @@ export default function CasinoApp(){
 
     <aside className="sidebar">
       <nav>
+        <a className="providerNavLink" href="/providers">◈ <span>{lang==='mn'?'Provider тоглоомууд':'Provider games'}</span></a>
+        <a className="providerNavLink" href="/live">◉ <span>{lang==='mn'?'Live казино':'Live casino'}</span></a>
+        <a className="providerNavLink" href="/slots">✦ <span>{lang==='mn'?'Provider слот':'Provider slots'}</span></a>
         <button onClick={()=>setCategory('All')} className={category==='All'?'active':''}>⌂ <span>{t.casino}</span></button>
         <button onClick={()=>setCategory('Originals')} className={category==='Originals'?'active':''}>◆ <span>{t.originals}</span></button>
         <button onClick={()=>setCategory('Table')} className={category==='Table'?'active':''}>♠ <span>{t.tables}</span></button>
@@ -82,7 +87,7 @@ export default function CasinoApp(){
       <footer><div className="footerBrand">MONGOLZ</div><p>{t.notice}</p><span>Demo build • v1.0</span></footer>
     </main>
 
-    <nav className="mobileNav"><button onClick={()=>setCategory('All')}>⌂<span>{t.casino}</span></button><button onClick={()=>setCategory('Originals')}>◆<span>Originals</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>setLang(lang==='mn'?'en':'mn')}>文<span>{lang.toUpperCase()}</span></button></nav>
+    <nav className="mobileNav"><a className="providerMobileLink" href="/providers">◈<span>{lang==='mn'?'Provider':'Providers'}</span></a><button onClick={()=>setCategory('All')}>⌂<span>{t.casino}</span></button><button onClick={()=>setCategory('Originals')}>◆<span>Originals</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>setLang(lang==='mn'?'en':'mn')}>文<span>{lang.toUpperCase()}</span></button></nav>
 
     {active&&<div className="modalBackdrop"><div className="gameModal"><button className="x" onClick={()=>setActive(null)}>×</button><DemoGame game={active} lang={lang} balance={balance} settle={settle}/></div></div>}
     {cashier&&<div className="modalBackdrop"><div className="sheet"><button className="x" onClick={()=>setCashier(false)}>×</button><span className="eyebrow">SANDBOX</span><h2>{t.cashier}</h2><p>{t.cashierText}</p><div className="paymentGrid"><div><b>VISA</b><span>Demo card</span></div><div><b>Mastercard</b><span>Demo card</span></div><div><b>USDT</b><span>TRC20 / ERC20 UI</span></div><div><b>USDC</b><span>Crypto UI</span></div><div><b>BTC</b><span>Bitcoin UI</span></div><div><b>ETH</b><span>Ethereum UI</span></div></div><div className="noticeBox">⚠ {t.notice}</div><button className="outlineButton" onClick={reset}>{t.reset}</button></div></div>}

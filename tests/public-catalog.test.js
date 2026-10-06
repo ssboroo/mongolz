@@ -1,0 +1,5 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {publicCatalog,providerHubs} from '../src/providers.js';
+test('public catalog has 76 unique official game pages including 34 live titles',()=>{assert.equal(publicCatalog.length,76);assert.equal(new Set(publicCatalog.map(g=>g.id)).size,76);assert.equal(new Set(publicCatalog.map(g=>g.url)).size,76);assert.equal(publicCatalog.filter(g=>g.category==='live').length,34);for(const g of publicCatalog){const u=new URL(g.url);assert.equal(u.protocol,'https:');assert.ok(['www.pragmaticplay.com','games.evolution.com','bgaming.com','www.playngo.com'].includes(u.hostname));assert.ok(['demo-page','showcase'].includes(g.kind));assert.ok(g.name&&g.provider&&g.category);}});
+test('provider portfolios include live, slots and major studios without fake counts',()=>{assert.equal(providerHubs.length,8);assert.ok(providerHubs.some(h=>h.name==='PG Soft'));assert.ok(providerHubs.some(h=>h.name==='Hacksaw Gaming'));assert.equal(providerHubs.filter(h=>h.category==='live').length,2);});

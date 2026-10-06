@@ -33,7 +33,7 @@ http.createServer(async (req, res) => {
       }catch(error){return send(error.status||502,{error:error.status===404?'Demo game not available':'Provider demo temporarily unavailable',code:'PROVIDER_ERROR'});}
     }
     const target = pathname === '/' ? '/index.html' : pathname;
-    if (!['/index.html','/src/app.js','/src/engine.js','/src/style.css','/src/providers.js','/favicon.svg'].includes(target)) { res.writeHead(404); res.end('Not found'); return; }
+    if (!['/index.html','/src/app.js','/src/engine.js','/src/style.css','/src/providers.js','/src/public-catalog.js','/favicon.svg'].includes(target)) { res.writeHead(404); res.end('Not found'); return; }
     const data = await readFile(path.join(root, target));
     res.writeHead(200, {'Content-Type': types[path.extname(target)], 'X-Content-Type-Options': 'nosniff', 'Content-Security-Policy': "default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data: https:; frame-src https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"});
     res.end(data);
