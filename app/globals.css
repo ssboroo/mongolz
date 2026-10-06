@@ -334,3 +334,89 @@ h1,h2,h3,.brand b,.footerBrand,.stakeHeroBadge strong,.maxSpotlight2026 b,.provi
 .pc0{left:3%;z-index:6;transform:translateY(-50%) rotate(-8deg)}.pc1{left:18%;z-index:7;transform:translateY(-50%) rotate(-4deg)}.pc2{left:33%;z-index:9;transform:translateY(-52%) scale(1.08)}.pc3{left:49%;z-index:8;transform:translateY(-50%) rotate(4deg)}.pc4{left:65%;z-index:7;transform:translateY(-50%) rotate(7deg)}.pc5{left:80%;z-index:6;transform:translateY(-50%) rotate(10deg)}
 @media(max-width:1250px){.popularSlotHero2026{grid-template-columns:1fr}.popularHeroCopy2026{padding-bottom:18px}.popularCovers2026{min-height:315px}.popularCover2026{width:130px;height:210px}.pc0{left:5%}.pc1{left:20%}.pc2{left:35%}.pc3{left:50%}.pc4{left:65%}.pc5{left:80%}}
 @media(max-width:760px){.popularSlotHero2026{display:block;min-height:610px}.popularHeroCopy2026{padding:25px 18px 8px}.popularHeroCopy2026 h1{font-size:31px}.popularHeroCopy2026 p{font-size:8px}.popularCovers2026{height:325px;min-height:325px;overflow:hidden;margin-top:5px}.popularCover2026{width:118px;height:190px;top:52%}.pc0{left:-6%}.pc1{left:11%}.pc2{left:28%}.pc3{left:45%}.pc4{left:62%}.pc5{left:79%}.popularCover2026>div{right:8px}.popularCover2026>i{display:none}}
+
+
+/* ===== MONGOLZ GOLD LUXURY CASINO 2026 ===== */
+:root{
+ --lux-bg:#050608;
+ --lux-bg2:#0a0b0f;
+ --lux-panel:#0d1015;
+ --lux-panel2:#12161d;
+ --lux-panel3:#171b22;
+ --lux-line:#2c2619;
+ --lux-line2:#4b3b1e;
+ --lux-gold:#f2c85b;
+ --lux-gold2:#b9821f;
+ --lux-gold3:#ffde7f;
+ --lux-amber:#f59e2f;
+ --lux-cream:#fff4d5;
+ --lux-text:#f7f7f5;
+ --lux-muted:#8c8b87;
+}
+body{background:radial-gradient(circle at 78% -15%,#28180b55 0,transparent 30%),#050608;color:var(--lux-text)}
+.stakeInspired2026{background:radial-gradient(circle at 82% -10%,#2a170947 0,transparent 30%),radial-gradient(circle at 18% 48%,#4c2a0a1c 0,transparent 24%),var(--lux-bg)}
+.stakeInspired2026:before{background:radial-gradient(circle at 75% -14%,#38210e44 0,transparent 31%),var(--lux-bg)}
+.stakeInspired2026 .topbar{height:66px;background:#07080bed;border-color:#2f271a;box-shadow:0 8px 28px #0008}
+.stakeInspired2026 .brandMark{border:1px solid #6e5425;background:radial-gradient(circle at 35% 25%,#2e2415,#0b0c0f 70%);color:var(--lux-gold3);box-shadow:inset 0 0 0 1px #fff1b50c,0 0 24px #c6912530}
+.stakeInspired2026 .brand b{color:#fff6dc;letter-spacing:3px}.stakeInspired2026 .brand small{color:#887956}
+.modeSwitch{background:#050608;border:1px solid #2a2419}.modeSwitch button{color:#887b63}.modeSwitch .active{background:linear-gradient(180deg,#2a2113,#171109);color:#ffe19a;box-shadow:inset 0 0 0 1px #6f5426}
+.stakeInspired2026 .searchWrap{background:#090a0e;border:1px solid #32291b}.stakeInspired2026 .searchWrap:focus-within{border-color:#7a5d26;box-shadow:0 0 0 3px #e9bd4e10}
+.stakeInspired2026 .balanceButton{background:#090a0e;border:1px solid #332a1c}.stakeInspired2026 .balanceButton span{color:#7e7462}.stakeInspired2026 .balanceButton b{color:#ffe7a3}
+.stakeInspired2026 .goldButton,.headerRegister2026,.authSubmit2026,.stakePrimary{
+ background:linear-gradient(180deg,#ffe37e 0,#f1bd3b 55%,#b67616 100%);
+ color:#1a1004;border:1px solid #ffd96b;box-shadow:0 8px 25px #b97a1c33,inset 0 1px 0 #fff6c7;font-weight:900
+}
+.stakeInspired2026 .goldButton:hover,.headerRegister2026:hover,.authSubmit2026:hover,.stakePrimary:hover{filter:brightness(1.08);box-shadow:0 10px 30px #d895273f}
+.headerLogin2026{background:#0c0d11;border-color:#3b3020;color:#d4c4a1}.headerUser2026{background:#0c0d11;border-color:#3f321f}.headerUser2026 span{background:#352711;color:#ffd976}
+.stakeInspired2026 .langSwitch{background:#08090c;border:1px solid #302719}.stakeInspired2026 .langSwitch .on{background:#21180d;color:#ffd873}
+.stakeInspired2026 .sidebar{background:#08090c;border-color:#2a2419;box-shadow:8px 0 26px #0005}
+.sideAccount2026,.sideSection2026{border-color:#241f17}.sideGuest2026,.sideUserCard2026{background:linear-gradient(145deg,#15120d,#0b0c0e);border-color:#3e321f}.sideAvatar2026{background:linear-gradient(145deg,#7c5a1c,#3a260c);color:#ffe29a}.sideGuest2026 .primary{background:linear-gradient(180deg,#ffe37e,#e8ad34 60%,#a86712)!important;border-color:#f7ce63!important;color:#1c1204!important}
+.sideLabel2026{color:#6e634d}.stakeInspired2026 .premiumSidebar2026 nav button>i{color:#d9b15a}.stakeInspired2026 .sidebar nav button:hover,.stakeInspired2026 .sidebar nav button.active,.stakeInspired2026 .providerNavLink:hover{background:linear-gradient(90deg,#21190f,#101014);color:#fff1cc}
+.stakeInspired2026 .sidebar nav button.active{box-shadow:inset 3px 0 var(--lux-gold)}.stakeInspired2026 .premiumSidebar2026 nav button>em{background:#342611;color:#f2c55c}
+.sideSafety2026{background:#090a0d}.sideSafety2026 b{color:#d8b15b}.demoBadge i,.onlinePill i,.pulseDot,.demoFlag2026 i{background:#e9bd4e;box-shadow:0 0 12px #e9bd4e}
+
+.popularSlotHero2026{
+ min-height:430px;
+ grid-template-columns:.78fr 1.22fr;
+ border:1px solid #4d3b1e;
+ border-radius:16px;
+ background:
+  radial-gradient(circle at 82% 18%,#5b2e0d52 0,transparent 34%),
+  radial-gradient(circle at 54% 48%,#2a163b2f 0,transparent 30%),
+  linear-gradient(115deg,#08090d 0,#0b0d12 43%,#16100b 100%);
+ box-shadow:0 30px 90px #000c,inset 0 1px 0 #ffd8770b
+}
+.popularSlotHero2026:before{background-image:radial-gradient(#e0b64f1f 1px,transparent 1px);background-size:22px 22px;opacity:.5;mask-image:linear-gradient(90deg,#000 0,transparent 66%)}
+.popularHeroCopy2026{padding:52px 42px}
+.popularHeroBadge2026{border-color:#5a431f;background:#0a0908d9;box-shadow:0 0 22px #c88a2020}.popularHeroBadge2026 span{color:#d6b05e}.popularHeroBadge2026 img{filter:drop-shadow(0 0 6px #f3c34d55)}
+.popularHeroCopy2026 h1{margin:15px 0 10px;color:#fff;font-size:clamp(48px,5vw,76px);line-height:.9;letter-spacing:-2px;text-shadow:0 6px 24px #000,0 0 35px #f0c14d13}
+.popularHeroCopy2026 h1:before{content:"MOST PLAYED";display:block;margin-bottom:8px;font-family:var(--mz-font-ui);font-size:9px;line-height:1;letter-spacing:3px;color:#e1b453;text-shadow:none}
+.popularHeroCopy2026 p{max-width:440px;color:#a89f90;font-size:10px}.popularHeroMeta2026{color:#887a60}.popularHeroMeta2026 i{background:#e9bd4e;box-shadow:0 0 8px #e9bd4e}
+.stakeSecondary{background:linear-gradient(#17181d,#0d0e12);border:1px solid #45371f;color:#e2ce9d}
+.popularCovers2026{min-height:430px}
+.popularCover2026{top:50%;width:162px;height:278px;border:1px solid #7a5721;border-radius:15px;box-shadow:0 26px 55px #000c,0 0 0 1px #f1c2500b;background:#090a0c}
+.popularCover2026:before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;box-shadow:inset 0 0 35px #f5b93e13}
+.popularCover2026:after{background:linear-gradient(transparent 45%,#020303f2 100%)}
+.popularCover2026>span{background:#120d06d9;border:1px solid #7f5b23;color:#ffda78}.popularCover2026 b{font-size:9px;color:#fff3d3}.popularCover2026 small{color:#a79776}.popularCover2026>i{background:linear-gradient(#ffe47f,#cf8c1e);color:#1a0f02;box-shadow:0 0 18px #f2bc3c55}
+.popularCover2026:hover{border-color:#ffd86a;box-shadow:0 32px 72px #000d,0 0 35px #e4a62e2d!important}
+.pc0{left:1%;transform:translateY(-50%) rotate(-8deg)}.pc1{left:16%;transform:translateY(-50%) rotate(-5deg)}.pc2{left:31%;transform:translateY(-53%) scale(1.12)}.pc3{left:47%;transform:translateY(-50%) rotate(4deg)}.pc4{left:63%;transform:translateY(-50%) rotate(7deg)}.pc5{left:79%;transform:translateY(-50%) rotate(10deg)}
+
+.stakeQuickNav{background:#090a0e;border:1px solid #2c2519}.stakeQuickNav button{color:#95866d}.stakeQuickNav button:hover{background:#20170d;color:#ffe19a}
+.stakeSectionHead h2,.sectionTitle h2,.providerHeader2026 h2,.complianceHead2026 h2,.winHeadline2026 h2{color:#fff3d0}
+.stakeRailArt{border:1px solid #352817;background:radial-gradient(circle at 60% 18%,#5b3a18,#261a0d 42%,#08090c)}.rail-1,.rail-5{background:radial-gradient(circle at 60% 20%,#6b2134,#2d1018 42%,#08080b)}.rail-2,.rail-6{background:radial-gradient(circle at 60% 20%,#674f16,#2d230d 42%,#09090a)}.rail-3,.rail-7{background:radial-gradient(circle at 60% 20%,#4d2817,#24140c 42%,#08090a)}
+.stakeRailArt i,.playCircle,.providerPlay2026{background:linear-gradient(#ffe37b,#d6911c);color:#1c1002;box-shadow:0 0 16px #d9962544}
+.stakeRailCard>small em{background:#e8b84b}
+.promoCard{border:1px solid #4c391c;box-shadow:inset 0 1px 0 #ffe48b0b,0 16px 35px #0005}.promoBlue{background:linear-gradient(135deg,#42280e,#17100a)}.promoPurple{background:linear-gradient(135deg,#391c3e,#170d1b)}.promoGold{background:linear-gradient(135deg,#5f4519,#23180b)}
+.winFeed2026,.stakeInspired2026 .winFeed2026{background:radial-gradient(circle at 88% 12%,#6a461332 0,transparent 32%),#0c0e12;border-color:#342817}.maxSpotlight2026{border-color:#735522;background:linear-gradient(135deg,#30200d,#111014)}.maxSpotlight2026 small{color:#b69758}.maxSpotlight2026 b{color:#ffd66e}.winRail2026 article{background:#0e1014;border-color:#2d271d}.winRail2026 article.topWin{background:linear-gradient(135deg,#261b0c,#101014);border-color:#735623}.winAvatar2026{background:#2a1d0c;color:#f2c75d}.topWin .winAvatar2026{background:#4b3515;color:#ffdc78}.winRail2026 strong{color:#f0c14e}.topWin strong{color:#ffd873}
+.stakeInspired2026 .gameArt,.providerCover2026{border-color:#382b18;background:#0c0e12}.stakeInspired2026 .gameCard:hover .gameArt,.providerCard2026:hover .providerCover2026{border-color:#8d6726;box-shadow:0 18px 42px #000b,0 0 25px #d9962020}
+.providerSection2026{border-color:#2b2418}.providerCount2026,.providerLogoRail2026>button,.providerCats2026 button,.providerChips2026 button{background:#0d0f13;border-color:#33291b}.providerLogoRail2026>button:hover,.providerLogoRail2026>button.active,.providerCats2026 button.active,.providerChips2026 button.active{background:#21170c;border-color:#7a5b26;color:#ffdf8e}
+.providerLogoBox2026{background:#090a0d}.providerSearch2026 input,.providerSearch2026 select{background:#090a0d;border-color:#33291b}.providerInfo2026 button{color:#e5b84f}.simulationNote2026{background:#0a0c0f;border-color:#2d261b;color:#827866}
+.compliance2026,.stakeInspired2026 .compliance2026{background:#0d0f13;border-color:#34291b}.trustSeal2026{background:#090b0e;border-color:#40341f}.trustSeal2026 span{color:#e5b84d}.complianceGrid2026 article{background:#0f1115;border-color:#2f281d}.complianceIcon2026{background:#24190c;color:#eac052}.licenceNotice2026{background:#211709;border-color:#59421e}.licenceNotice2026 b{color:#e8bd57}
+.gameModal,.sheet,.stakeInspired2026 .gameModal,.stakeInspired2026 .sheet{background:linear-gradient(145deg,#101216,#07080b);border-color:#3b2f1f}.gameBoard{background:radial-gradient(circle at 50% 20%,#2f1d0c,#08090b 68%);border-color:#342818}.gameAction{background:linear-gradient(#ffe27a,#d9931e);color:#1b1002}.gameAction.cash{background:linear-gradient(#ffd26d,#a66c17);color:#190f02}.maxPotential{background:#0b0c0f;border-color:#4a381d}.maxPotential b{color:#f0c050}
+.authSheet2026,.profileSheet2026,.supportSheet2026{background:linear-gradient(145deg,#0f1115,#07080a)}.authMark2026{background:linear-gradient(145deg,#5a3d14,#211507);color:#ffe08b}.authTabs2026{background:#08090c}.authTabs2026 .active{background:#24190d;color:#ffdc85}.authPanel2026 input{background:#090a0d;border-color:#3b2e1e}.authPanel2026 input:focus{border-color:#80602a;box-shadow:0 0 0 3px #f0be4910}.profileHero2026>span{background:linear-gradient(#6d4c19,#291907);color:#ffdc7b}.profileStats2026>div,.profileActions2026 button,.supportCards2026 button{background:#0c0e12;border-color:#33291c}.profileNote2026{background:#241b0e;color:#c5aa6c}
+.stakeFooter{border-color:#2b2418!important}.footerBrand{color:#e8bd55}
+.mobileNav{background:#08090cf2!important;border-color:#332819!important}.mobileWallet{background:linear-gradient(#ffe27a,#c98519)!important;color:#1a1003!important;border-color:#f4cc60!important;box-shadow:0 10px 28px #b8761c55!important}
+::selection{background:#eec65a;color:#1b1103}
+*{scrollbar-color:#5a431f #090a0c}
+@media(max-width:1250px){.popularSlotHero2026{grid-template-columns:1fr}.popularHeroCopy2026{padding-bottom:12px}.popularCovers2026{min-height:340px}}
+@media(max-width:760px){.popularSlotHero2026{min-height:650px}.popularHeroCopy2026{padding:28px 18px 8px}.popularHeroCopy2026 h1{font-size:42px}.popularCovers2026{height:340px;min-height:340px}.popularCover2026{width:124px;height:205px}.stakeInspired2026 .gameGrid{grid-template-columns:repeat(2,1fr)}}

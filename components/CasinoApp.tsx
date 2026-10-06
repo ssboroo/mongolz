@@ -116,11 +116,11 @@ export default function CasinoApp(){
     <main className="content">
       <section className="popularSlotHero2026">
         <div className="popularHeroCopy2026">
-          <div className="popularHeroBadge2026"><img src="/api/provider-mark?provider=Pragmatic%20Play" alt=""/><span>PRAGMATIC PLAY • POPULAR SLOTS</span></div>
-          <h1>{lang==='mn'?'Дэлхийн хамгийн алдартай слотуудаас.':'Play the slots everyone knows.'}</h1>
-          <p>{lang==='mn'?'Pragmatic Play-ийн official game page дээрх бодит promotional cover-ууд. Demo дарахад MONGOLZ local simulation engine ажиллана.':'Real promotional covers pulled from Pragmatic Play official game pages. Play opens the MONGOLZ local simulation engine.'}</p>
-          <div className="stakeWelcomeActions"><button className="stakePrimary" onClick={()=>openPopularSlot(POPULAR_PRAGMATIC[0])}>▶ {lang==='mn'?'Popular slot тоглох':'Play popular slots'}</button><button className="stakeSecondary" onClick={()=>showProviders('slots')}>{lang==='mn'?'Бүх слот':'All slots'} →</button></div>
-          <div className="popularHeroMeta2026"><span><i/> OFFICIAL COVER SOURCE</span><span>6 FEATURED</span><span>DEMO ONLY</span></div>
+          <div className="popularHeroBadge2026"><img src="/api/provider-mark?provider=Pragmatic%20Play" alt=""/><span>PRAGMATIC PLAY • MOST PLAYED</span></div>
+          <h1>{lang==='mn'?'POPULAR SLOTS':'POPULAR SLOTS'}</h1>
+          <p>{lang==='mn'?'Sweet Bonanza, Gates of Olympus, Big Bass болон бусад алдартай Pragmatic тоглоомуудын official cover-той premium demo lobby.':'Popular Pragmatic Play titles with official promotional covers in a premium MONGOLZ demo lobby.'}</p>
+          <div className="stakeWelcomeActions"><button className="stakePrimary" onClick={()=>openPopularSlot(POPULAR_PRAGMATIC[0])}>▶ {lang==='mn'?'PLAY NOW':'PLAY NOW'}</button><button className="stakeSecondary" onClick={()=>showProviders('slots')}>{lang==='mn'?'POPULAR SLOTS':'POPULAR SLOTS'} →</button></div>
+          <div className="popularHeroMeta2026"><span><i/> PLAYABLE DEMO</span><span>POPULAR PICKS</span><span>MOBILE READY</span></div>
         </div>
         <div className="popularCovers2026">{POPULAR_PRAGMATIC.map((slot,i)=><button key={slot.id} className={'popularCover2026 pc'+i} onClick={()=>openPopularSlot(slot)} aria-label={slot.name}><img src={'/api/catalog-cover?id='+slot.id} alt={slot.name}/><span>{slot.tag}</span><div><b>{slot.name}</b><small>Pragmatic Play</small></div><i>▶</i></button>)}</div>
       </section>
