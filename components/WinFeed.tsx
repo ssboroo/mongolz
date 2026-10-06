@@ -14,7 +14,7 @@ export default function WinFeed({lang,history}:{lang:Lang;history:History[]}){
   const local=history.filter(h=>h.result>0&&h.bet>0).map(h=>({player:lang==='mn'?'ТА':'YOU',game:h.game,x:+((h.result+h.bet)/h.bet).toFixed(2),amount:Math.round(h.result+h.bet)})).sort((a,b)=>b.x-a.x).slice(0,3);
   const feed=[...local,...demo].slice(0,8);
   const max=feed.reduce((a,b)=>b.x>a.x?b:a,feed[0]);
-  return <section className="winFeed2026">
+  return <section id="max-wins" className="winFeed2026">
     <div className="winHeadline2026">
       <div><span className="eyebrow">DEMO WIN FEED • SIMULATED</span><h2>{lang==='mn'?'MAX WIN & BIG WIN':'MAX WIN & BIG WIN'}</h2><p>{lang==='mn'?'Бодит тоглогчдын мэдээлэл биш. Local demo session + simulated UI feed.':'Not real player data. Local demo session + simulated UI feed.'}</p></div>
       <div className="maxSpotlight2026"><small>MAX WIN</small><b>{max.x.toFixed(2)}×</b><span>{max.game}</span></div>
