@@ -20,7 +20,7 @@ function pickEngine(g:PublicGame,i:number):GameId{
   return ['plinko','mines','dice','crash'][i%4] as GameId;
 }
 function xml(v:string){return v.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[m]||m))}
-function cover(g:PublicGame,i:number){
+function legacyCover(g:PublicGame,i:number){
   const palettes=[
     ['#152645','#4d8dff','#07090e'],['#402030','#df6b86','#0a080d'],['#3d3418','#d8b45b','#090806'],
     ['#15352f','#4ed3a0','#07100e'],['#2f2144','#9f78ef','#09070e'],['#3b2717','#e18d47','#0b0805']
@@ -60,16 +60,17 @@ export default function ProviderSection({lang,balance,settle,initialCategory=''}
       <div className="providerCats2026">{['','live','slots','table','instant'].map(c=><button key={c||'all'} className={category===c?'active':''} onClick={()=>setCategory(c)}>{label(c)}</button>)}</div>
       <div className="providerSearch2026"><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={lang==='mn'?'Тоглоом эсвэл provider хайх…':'Search game or provider…'}/><select value={provider} onChange={e=>setProvider(e.target.value)}><option value="">{lang==='mn'?'Бүх provider':'All providers'}</option>{providers.map(p=><option key={p}>{p}</option>)}</select></div>
     </div>
-    <div className="providerChips2026">{providers.map(p=><button key={p} className={provider===p?'active':''} onClick={()=>setProvider(provider===p?'':p)}>{p}</button>)}</div>
+    <div className="providerLogoRail2026">{providers.map(p=><button key={p} className={provider===p?'active':''} onClick={()=>setProvider(provider===p?'':p)}><span className="providerLogoBox2026"><img src={'/api/provider-mark?provider='+encodeURIComponent(p)} alt="" loading="lazy"/></span><b>{p}</b><small>{games.filter(g=>g.provider===p).length} GAMES</small></button>)}</div>
+    <div className="providerChips2026">{providers.map(p=><button key={p} className={provider===p?'active':''} onClick={()=>setProvider(provider===p?'':p)}><img src={'/api/provider-mark?provider='+encodeURIComponent(p)} alt="" loading="lazy"/>{p}</button>)}</div>
     <div className="providerGrid2026">{visible.map((g,i)=>{
       const meta=toMeta(g,i);
       return <article className="providerCard2026" key={g.id}>
-        <button className="providerCover2026" onClick={()=>setSelected({meta,source:g})}><img src={cover(g,i)} alt={g.name}/><span className="demoFlag2026"><i/> DEMO</span><span className="providerPlay2026">▶</span></button>
-        <div className="providerInfo2026"><div><b>{g.name}</b><span>{g.provider}</span></div><button onClick={()=>setSelected({meta,source:g})}>{lang==='mn'?'Demo тоглох':'Play demo'} ▶</button></div>
+        <button className="providerCover2026" onClick={()=>setSelected({meta,source:g})}><img src={'/api/catalog-cover?id='+encodeURIComponent(g.id)} alt={g.name} loading="lazy"/><span className="demoFlag2026"><i/> DEMO</span><span className="providerSourceFlag2026">OFFICIAL PREVIEW / FALLBACK</span><span className="providerPlay2026">▶</span></button>
+        <div className="providerInfo2026"><div className="providerInfoBrand2026"><img src={'/api/provider-mark?provider='+encodeURIComponent(g.provider)} alt="" loading="lazy"/><span><b>{g.name}</b><small>{g.provider}</small></span></div><button onClick={()=>setSelected({meta,source:g})}>{lang==='mn'?'Demo тоглох':'Play demo'} ▶</button></div>
       </article>
     })}</div>
     {!visible.length&&<div className="providerEmpty2026">{lang==='mn'?'Тохирох тоглоом олдсонгүй.':'No matching games.'}</div>}
     <div className="simulationNote2026">ⓘ {lang==='mn'?'Эдгээр нь provider-ийн жинхэнэ licensed game биш, MONGOLZ-ийн local simulation demo. Official API access ормогц card бүрийн launch-г provider API-тай солино.':'These are MONGOLZ local simulation demos, not the providers’ licensed originals. When official API access is connected, each card can be switched to its provider launch.'}</div>
-    {selected&&<div className="modalBackdrop"><div className="gameModal"><button className="x" onClick={()=>setSelected(null)}>×</button><div className="providerModalTitle2026"><span>{selected.source.provider}</span><b>{selected.source.name}</b></div><DemoGame game={selected.meta} lang={lang} balance={balance} settle={settle}/></div></div>}
+    {selected&&<div className="modalBackdrop"><div className="gameModal"><button className="x" onClick={()=>setSelected(null)}>×</button><div className="providerModalTitle2026"><img src={'/api/provider-mark?provider='+encodeURIComponent(selected.source.provider)} alt=""/><span><small>{selected.source.provider}</small><b>{selected.source.name}</b></span></div><DemoGame game={selected.meta} lang={lang} balance={balance} settle={settle}/></div></div>}
   </section>;
 }
