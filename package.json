@@ -1,0 +1,8 @@
+{
+  "name": "mongolz-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"start": "node server.mjs", "dev": "node server.mjs", "test": "node --test", "check": "node --check src/app.js && node --check src/engine.js && node --check server.mjs && node --check provider.mjs && node --check src/providers.js"},
+  "engines": {"node": ">=20"}
+}
