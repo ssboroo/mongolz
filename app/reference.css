@@ -1,0 +1,58 @@
+/* Reference composition: 1672px artwork, with working DOM navigation and tiles. */
+.referenceLobby{font-family:Arial,var(--mz-font-ui),sans-serif}
+.referenceLobby .royalTopbar{height:58px;background:linear-gradient(90deg,#070b0d 230px,#08090ce6 230px, #100e0bb8);border-bottom:0;box-shadow:none;padding:0 23px 0 28px;gap:24px}
+.referenceLobby .royalTopbar .brand{width:211px;min-width:211px;gap:12px}
+.referenceLobby .royalTopbar .brandMark{width:49px;height:44px;font-size:37px;border-color:#ffdc73;box-shadow:0 0 12px #f7bd4233}
+.referenceLobby .royalTopbar .brand b{font-size:23px;letter-spacing:1.5px;color:#ffdc73}
+.referenceLobby .royalTopbar .brand small{font-size:9px;letter-spacing:3px;color:#c0bdac}
+.referenceLobby .royalSearch{max-width:410px;height:36px;flex:1;border-radius:13px}
+.referenceLobby .royalSearch input{font-size:12px}
+.referenceLobby .royalTopActions{margin-left:auto;gap:10px}
+.referenceLobby .royalMiniBtn,.referenceLobby .royalLang,.referenceLobby .royalIconBtn{font-size:11px;color:#fff}
+.referenceLobby .royalBalance b{font-size:12px;color:#fff!important}
+.referenceLobby .royalTopbar .headerLogin2026,.referenceLobby .royalTopbar .headerRegister2026{font-size:13px;padding:0 28px;border-radius:6px}
+.referenceLobby .royalSidebar{top:58px;width:230px;padding:36px 13px 18px;box-shadow:none;background:linear-gradient(110deg,#070b0d,#080c0e);height:calc(100dvh - 58px)}
+.referenceLobby .royalSideNav{gap:6px}
+.referenceLobby .royalSideNav button{height:46px;gap:18px}
+.referenceLobby .royalSideNav button i{font-size:25px;width:27px}
+.referenceLobby .royalSideNav button span{font-size:13px}
+.referenceLobby .royalSideDivider{margin:30px -13px 10px}
+.referenceLobby .royalSideNav.secondary button{height:35px}
+.referenceLobby .royalVipCard{min-height:254px;background:url('/royal/vip.webp') center/100% 100%;margin-top:25px;width:100%;position:relative}
+.referenceLobby .royalVipCard>*{opacity:0}
+.referenceLobby .royalContent{margin-left:230px;padding-top:58px}
+.referenceLobby .royalHero{height:336px;min-height:336px;background:url('/royal/hero-full.webp') center bottom/100% auto no-repeat;display:block}
+.referenceLobby .royalHero:before{display:none}
+.referenceLobby .royalHeroCopy{height:100%;width:28%;padding:0;opacity:0}
+.referenceLobby .royalHeroCopy .royalPlay{position:absolute;left:9%;bottom:11%;height:36px;width:160px}
+.referenceLobby .referenceHeroArt{position:absolute;left:27%;right:0;top:0;bottom:0;min-height:0}
+.referenceLobby .royalHeroGame{top:8%;width:16%;height:85%;border:0;background:transparent;box-shadow:none;transform:none!important}
+.referenceLobby .royalHeroGame img,.referenceLobby .royalHeroGame span,.referenceLobby .royalHeroGame:after{display:none}
+.referenceLobby .royalHeroGame:hover{box-shadow:inset 0 0 0 2px #ffd26799;background:#ffd2670a}
+.referenceLobby .rh0{left:0}.referenceLobby .rh1{left:17%}.referenceLobby .rh2{left:34%}.referenceLobby .rh3{left:51%}.referenceLobby .rh4{left:68%}
+.referenceLobby .royalCategoryBar{height:47px;padding:7px 34px;gap:7px}
+.referenceLobby .royalCategoryBar button{font-size:11px}.referenceLobby .royalCategoryBar i{font-size:19px}
+.referenceLobby .royalContent>*:not(.royalHero):not(.royalCategoryBar){margin-left:16px;margin-right:16px}
+.referenceLobby .royalSection{margin-top:0}.referenceLobby .royalSectionHead{height:29px}
+.referenceLobby .royalSectionHead h2{font-size:14px;color:#fff}.referenceLobby .royalSectionHead button{font-size:12px;color:#ffda76}
+.referenceLobby .royalGameRow{grid-template-columns:repeat(10,minmax(0,1fr));gap:9px}
+.referenceLobby .royalGameImage{aspect-ratio:1.5;border-radius:7px;border-color:#8d692f}
+.referenceLobby .royalGameCard>b{font-size:11px;margin-top:3px}.referenceLobby .royalGameCard>small{font-size:10px;color:#bdb6a5}
+.referenceLobby .royalPromoGrid{margin-top:9px!important;grid-template-columns:1fr 1fr 1.08fr}
+.referenceLobby .royalPromo{height:113px;min-height:113px;background-size:100% 100%;background-position:center}
+.referenceLobby .promoA{background-image:url('/royal/promo-new.webp')}.referenceLobby .promoB{background-image:url('/royal/promo-bonus.webp')}.referenceLobby .promoC{background-image:url('/royal/promo-vip.webp')}
+.referenceLobby .royalPromo>*{opacity:0}
+.referenceLobby .royalProviderStrip{display:flex;gap:16px;align-items:center;margin-top:13px!important}
+.referenceLobby .royalProviderStrip .royalSectionHead{display:contents}.referenceLobby .royalProviderStrip h2{font-size:12px;white-space:nowrap}.referenceLobby .royalProviderStrip .royalSectionHead>button{order:3;white-space:nowrap}
+.referenceLobby .royalProviderRow{flex:1;grid-template-columns:repeat(10,minmax(0,1fr));gap:8px}.referenceLobby .royalProviderRow button{height:42px}.referenceLobby .royalProviderRow img{width:100%;height:32px}.referenceLobby .royalProviderRow span{display:none}
+.referenceLobby .royalMaxWin{margin-top:11px!important;height:66px}.referenceLobby .maxWinTitle{min-width:210px}.referenceLobby .maxWinTitle b{font:900 30px Arial;color:#ffe299}.referenceLobby .maxWinTitle small{font-size:10px;color:#fff}.referenceLobby .maxWinTitle>span{font-size:48px}.referenceLobby .maxWinItems img{height:49px;width:67px}.referenceLobby .maxWinItems small,.referenceLobby .maxWinItems em{font-size:9px}.referenceLobby .maxWinItems b{font-size:14px}.referenceLobby .maxWinMore{font-size:11px;white-space:nowrap}
+.referenceLobby .newGamesSection{margin-top:6px!important}
+.referenceLobby button:focus-visible{outline:2px solid #ffe08a;outline-offset:3px}
+@media(min-width:1700px){.referenceLobby .royalHero{height:calc((100vw - 230px)*.233);min-height:336px}}
+@media(max-width:1250px){.referenceLobby .royalTopbar{gap:12px;padding-left:16px}.referenceLobby .royalTopbar .brand{width:202px;min-width:202px}.referenceLobby .royalMiniBtn{display:none}.referenceLobby .royalTopbar .headerLogin2026,.referenceLobby .royalTopbar .headerRegister2026{padding:0 14px}.referenceLobby .royalGameRow{grid-template-columns:repeat(5,minmax(0,1fr))}.referenceLobby .royalProviderStrip{display:block}.referenceLobby .royalProviderStrip .royalSectionHead{display:flex}.referenceLobby .royalProviderRow{grid-template-columns:repeat(5,minmax(0,1fr))}.referenceLobby .royalHero{background-size:cover;background-position:right bottom}.referenceLobby .royalMaxWin{overflow:auto}}
+@media(max-width:1120px){.referenceLobby .royalSidebar{width:82px}.referenceLobby .royalContent{margin-left:82px}.referenceLobby .royalTopbar .brand{width:54px;min-width:54px}.referenceLobby .royalSideDivider{margin-top:20px}.referenceLobby .royalSideNav button{padding:0;gap:0}.referenceLobby .royalCategoryBar{padding:7px 16px;height:auto}.referenceLobby .royalHero{background-size:100% 100%;height:280px;min-height:280px}}
+@media(max-width:760px){.referenceLobby .royalTopbar .brand{width:auto;min-width:auto}.referenceLobby .royalTopbar .brand b{font-size:18px}.referenceLobby .royalSidebar{display:none}.referenceLobby .royalContent{margin-left:0}.referenceLobby .royalHero{background-image:linear-gradient(#050607,transparent),url('/royal/hero.webp');height:auto;min-height:520px;background-size:100% 100%,auto 275px;background-position:center,center bottom}.referenceLobby .royalHeroCopy{opacity:1;width:100%;height:auto;padding:22px 18px 285px}.referenceLobby .royalHeroCopy .royalPlay{position:static;width:auto;height:auto}.referenceLobby .royalHeroCopy p{font-size:12px}.referenceLobby .royalHeroCards{top:auto;height:250px}.referenceLobby .royalHeroPerks{font-size:9px}.referenceLobby .royalGameRow{display:flex}.referenceLobby .royalGameCard{min-width:132px}.referenceLobby .royalProviderRow{display:flex}.referenceLobby .royalPromo{min-width:330px}.referenceLobby .royalCategoryBar button{font-size:10px}.referenceLobby .royalMaxWin{height:76px}.referenceLobby .maxWinTitle{min-width:180px}.referenceLobby .royalSectionHead h2{font-size:13px}}
+.referenceLobby .royalHeroGame{width:16%}.referenceLobby .rh5{left:84%}
+.referenceLobby .royalHeroBrand b{color:#ffdd77}
+@media(min-width:1121px){.referenceLobby .royalTopbar .brand{align-self:flex-start;margin-top:20px;height:45px;background:url('/royal/brand.webp') left center/183px 45px no-repeat}.referenceLobby .royalTopbar .brand>*{opacity:0}}
+.referenceLobby .royalHeroCopy:focus-within{opacity:1;background:#07090ced;padding:24px}

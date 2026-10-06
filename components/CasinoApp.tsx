@@ -13,10 +13,12 @@ type History={id:string; game:string; bet:number; result:number; at:string};
 type PublicGame={id:string;name:string;provider:string;category:string;kind?:string;url?:string;icon?:string};
 
 const PUBLIC=(catalog as {games:PublicGame[]}).games;
-const pick=(ids:string[])=>ids.map(id=>PUBLIC.find(g=>g.id===id)).filter(Boolean) as PublicGame[];
-const HERO=pick(['sweet-bonanza','gates-of-olympus','big-bass-bonanza','sugar-rush','sweet-bonanza-1000']);
-const POPULAR=pick(['sweet-bonanza','gates-of-olympus','big-bass-bonanza','sugar-rush','sweet-bonanza-1000','gates-of-olympus-2500','big-bass-vegas-1000','freya-1000','deep-sea-frenzy','forever-split-megaways']);
-const NEW_GAMES=pick(['coven-rising','pelican-payday','deep-sea-frenzy','forever-split-megaways','big-bass-vegas-1000','freya-1000','bg-witchcraft-riches','bg-divine-queen-power-of-sun','bg-cats-love-yummy','evos-starburst']);
+
+// Reference lobby tiles are illustrative artwork; launches remain local simulations.
+const referenceGames=(names:string[],prefix:string):PublicGame[]=>names.map((name,i)=>({id:prefix+i,name,provider:i===3?'PG Soft':i===5?'Hacksaw Gaming':i===8?'Play’n GO':'Pragmatic Play',category:'slots',kind:'local',url:'/royal/'+prefix+i+'.webp'}));
+const POPULAR=referenceGames(['Sweet Fantasy','Gates of Olympus','Big Bass Adventure',"Dragon’s Treasure",'Queen of the Nile','Lucky Paws','Sugar Rush 1000','Wild Buffalo','Book of Kings','Fruit Party'],'popular-');
+const HERO=POPULAR.slice(0,6);
+const NEW_GAMES=referenceGames(['Crystal Wolves','Temple of Fortuna','Panda Fortune','Golden Bull','Divine Queen','Wild West','Dragon Fire','Lucky Cat','Samurai Fortune','Mystic Sorceress'],'new-');
 const PROVIDERS=['Pragmatic Play','PG Soft','Hacksaw Gaming','Play’n GO','Evolution','NetEnt','Relax Gaming','Nolimit City','Push Gaming','Quickspin'];
 
 const T={
@@ -72,12 +74,12 @@ export default function CasinoApp(){
  const demoWins=[
   {name:'BoldNomad',id:'gates-of-olympus',game:'Gates of Olympus',amount:'58,420,000'},
   {name:'LuckyGirl',id:'sugar-rush',game:'Sugar Rush 1000',amount:'32,180,000'},
-  {name:'MGLPlayer',id:'sweet-bonanza',game:'Sweet Bonanza',amount:'28,900,000'},
-  {name:'CasinoKing',id:'big-bass-bonanza',game:'Big Bass Bonanza',amount:'21,450,000'},
-  {name:'Tenger777',id:'freya-1000',game:'Freya 1000',amount:'18,760,000'}
+  {name:'MGLPlayer',id:'popular-3',game:'Dragon’s Treasure',amount:'28,900,000'},
+  {name:'CasinoKing',id:'big-bass-bonanza',game:'Big Bass Adventure',amount:'21,450,000'},
+  {name:'Tenger777',id:'popular-8',game:'Book of Kings',amount:'18,760,000'}
  ];
 
- return <div className="appShell royalCasino2026">
+ return <div className={"appShell royalCasino2026 referenceLobby referenceLang-"+lang}>
   <header className="topbar royalTopbar">
    <button className="brand" onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}><span className="brandMark">M</span><span><b>MONGOLZ</b><small>CASINO DEMO</small></span></button>
    <div className="searchWrap royalSearch"><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={t.search}/></div>
@@ -122,8 +124,8 @@ export default function CasinoApp(){
      <button className="royalPlay" onClick={()=>openPublic(HERO[0])}>{lang==='mn'?'ОДОО ТОГЛОХ':'PLAY NOW'} <span>›</span></button>
      <div className="royalHeroPerks"><span>ϟ {lang==='mn'?'ӨНДӨР RTP':'HIGH RTP'}</span><span>⬡ {lang==='mn'?'ШУДАРГА ТОГЛОЛТ':'FAIR PLAY'}</span><span>▯ MOBILE READY</span></div>
     </div>
-    <div className="royalHeroCards">{HERO.map((g,i)=><button key={g.id} className={'royalHeroGame rh'+i} onClick={()=>openPublic(g,i)}><img src={'/api/catalog-cover?id='+g.id} alt={g.name}/><span>{g.name}</span></button>)}</div>
-    <div className="royalPager"><button>‹</button><span>1 / 6</span><button>›</button></div>
+    <div className="royalHeroCards referenceHeroArt">{HERO.map((g,i)=><button key={g.id} className={'royalHeroGame rh'+i} onClick={()=>openPublic(g,i)}><img src={g.url?.startsWith('/royal/')?g.url:'/api/catalog-cover?id='+g.id} alt={g.name}/><span>{g.name}</span></button>)}</div>
+    <div className="royalPager"><button aria-label="Previous games" onClick={()=>scrollTo('popular-games')}>‹</button><span>1 / 6</span><button aria-label="More games" onClick={()=>showProviders('slots')}>›</button></div>
    </section>
 
    <section className="royalCategoryBar">
@@ -142,29 +144,29 @@ export default function CasinoApp(){
 
    <section id="popular-games" className="royalSection">
     <div className="royalSectionHead"><h2>🔥 {lang==='mn'?'Алдартай тоглоомууд':'Popular games'}</h2><button onClick={()=>showProviders('slots')}>{lang==='mn'?'Бүгдийг харах':'View all'} →</button></div>
-    <div className="royalGameRow">{POPULAR.map((g,i)=><button className="royalGameCard" key={g.id} onClick={()=>openPublic(g,i)}><div className="royalGameImage"><img src={'/api/catalog-cover?id='+g.id} alt={g.name}/><span className="royalPlayDot">▶</span></div><b>{g.name}</b><small>{g.provider}</small><em>☆</em></button>)}</div>
+    <div className="royalGameRow">{POPULAR.map((g,i)=><button className="royalGameCard" key={g.id} onClick={()=>openPublic(g,i)}><div className="royalGameImage"><img src={g.url?.startsWith('/royal/')?g.url:'/api/catalog-cover?id='+g.id} alt={g.name}/><span className="royalPlayDot">▶</span></div><b>{g.name}</b><small>{g.provider}</small><em>☆</em></button>)}</div>
    </section>
 
    <section id="promotions" className="royalPromoGrid">
-    <button className="royalPromo promoA" onClick={()=>scrollTo('new-games')}><img src="/api/catalog-cover?id=coven-rising" alt=""/><div><small>ШИНЭ ТОГЛООМУУД</small><b>7 ХОНОГ БҮР</b><span>{lang==='mn'?'Тогтмол шинэчлэгдэнэ':'Fresh releases weekly'}</span><strong>{lang==='mn'?'ОДОО ТОГЛОХ':'PLAY NOW'} →</strong></div></button>
+    <button className="royalPromo promoA" onClick={()=>scrollTo('new-games')}><img src="/royal/new-0.webp" alt=""/><div><small>ШИНЭ ТОГЛООМУУД</small><b>7 ХОНОГ БҮР</b><span>{lang==='mn'?'Тогтмол шинэчлэгдэнэ':'Fresh releases weekly'}</span><strong>{lang==='mn'?'ОДОО ТОГЛОХ':'PLAY NOW'} →</strong></div></button>
     <button className="royalPromo promoB" onClick={()=>setCashier(true)}><div className="coinPile">◉ ◉ ◉</div><div><small>ТАВТАЙ БОНУС</small><b>100%</b><span>{lang==='mn'?'ЭХНИЙ DEPOSIT DEMO BONUS\n+200 FREE SPIN':'FIRST DEPOSIT DEMO BONUS\n+200 FREE SPINS'}</span><strong>{lang==='mn'?'ДЭЛГЭРЭНГҮЙ':'DETAILS'} →</strong></div></button>
-    <button className="royalPromo promoC" onClick={()=>user?setProfileOpen(true):openAuth('register')}><img src="/api/catalog-cover?id=gates-of-olympus" alt=""/><div><small>VIP CLUB</small><b>{lang==='mn'?'ИЛҮҮ ИХ БОНУС':'MORE REWARDS'}</b><span>{lang==='mn'?'ОНЦГОЙ ЭРХ':'EXCLUSIVE ACCESS'}</span><strong>{lang==='mn'?'VIP ГИШҮҮН БОЛОХ':'JOIN VIP'} →</strong></div></button>
+    <button className="royalPromo promoC" onClick={()=>user?setProfileOpen(true):openAuth('register')}><img src="/royal/popular-1.webp" alt=""/><div><small>VIP CLUB</small><b>{lang==='mn'?'ИЛҮҮ ИХ БОНУС':'MORE REWARDS'}</b><span>{lang==='mn'?'ОНЦГОЙ ЭРХ':'EXCLUSIVE ACCESS'}</span><strong>{lang==='mn'?'VIP ГИШҮҮН БОЛОХ':'JOIN VIP'} →</strong></div></button>
    </section>
 
    <section className="royalProviderStrip">
     <div className="royalSectionHead"><h2>{lang==='mn'?'Топ Provider-ууд':'Top Providers'}</h2><button onClick={()=>showProviders('')}>{lang==='mn'?'Бүгдийг харах':'View all'} →</button></div>
-    <div className="royalProviderRow">{PROVIDERS.map(p=><button key={p} onClick={()=>showProviders('')}><img src={'/api/provider-mark?provider='+encodeURIComponent(p)} alt=""/><span>{p}</span></button>)}</div>
+    <div className="royalProviderRow">{PROVIDERS.map((p,i)=><button key={p} aria-label={p} onClick={()=>showProviders('')}><img src={'/royal/provider-'+i+'.webp'} alt=""/><span>{p}</span></button>)}</div>
    </section>
 
    <section id="max-wins" className="royalMaxWin">
     <div className="maxWinTitle"><span>🏆</span><div><b>MAX WIN</b><small>{lang==='mn'?'ХАМГИЙН ТОМ ХОЖЛУУД • DEMO':'BIGGEST WINS • DEMO'}</small></div></div>
-    <div className="maxWinItems">{demoWins.map((w,i)=><button key={w.name} onClick={()=>{const g=PUBLIC.find(x=>x.id===w.id);if(g)openPublic(g,i)}}><img src={'/api/catalog-cover?id='+w.id} alt=""/><span><small>{w.name}</small><b>₮ {w.amount}</b><em>{w.game}</em></span></button>)}</div>
+    <div className="maxWinItems">{demoWins.map((w,i)=><button key={w.name} onClick={()=>{const g=[...POPULAR,...PUBLIC].find(x=>x.id===w.id);if(g)openPublic(g,i)}}><img src={'/royal/popular-'+[1,6,3,2,8][i]+'.webp'} alt=""/><span><small>{w.name}</small><b>₮ {w.amount}</b><em>{w.game}</em></span></button>)}</div>
     <button className="maxWinMore" onClick={()=>setHistoryOpen(true)}>{lang==='mn'?'Бүгдийг харах':'View all'} →</button>
    </section>
 
    <section id="new-games" className="royalSection newGamesSection">
     <div className="royalSectionHead"><h2>🔥 {lang==='mn'?'Шинэ тоглоомууд':'New games'}</h2><button onClick={()=>showProviders('')}>{lang==='mn'?'Бүгдийг харах':'View all'} →</button></div>
-    <div className="royalGameRow">{NEW_GAMES.map((g,i)=><button className="royalGameCard" key={g.id} onClick={()=>openPublic(g,i)}><div className="royalGameImage"><img src={'/api/catalog-cover?id='+g.id} alt={g.name}/><span className="newPill">NEW</span><span className="royalPlayDot">▶</span></div><b>{g.name}</b><small>{g.provider}</small><em>☆</em></button>)}</div>
+    <div className="royalGameRow">{NEW_GAMES.map((g,i)=><button className="royalGameCard" key={g.id} onClick={()=>openPublic(g,i)}><div className="royalGameImage"><img src={g.url?.startsWith('/royal/')?g.url:'/api/catalog-cover?id='+g.id} alt={g.name}/><span className="newPill">NEW</span><span className="royalPlayDot">▶</span></div><b>{g.name}</b><small>{g.provider}</small><em>☆</em></button>)}</div>
    </section>
 
    <section className="royalOriginals">
