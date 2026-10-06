@@ -30,6 +30,7 @@ export default function CasinoApp(){
   const [authOpen,setAuthOpen]=useState(false);
   const [profileOpen,setProfileOpen]=useState(false);
   const [supportOpen,setSupportOpen]=useState(false);
+  const [authMode,setAuthMode]=useState<'login'|'register'>('login');
   const t=T[lang];
 
   useEffect(()=>{
@@ -54,6 +55,7 @@ export default function CasinoApp(){
   function showProviders(mode=''){ setProviderCategory(mode); requestAnimationFrame(()=>document.getElementById('provider-catalog')?.scrollIntoView({behavior:'smooth',block:'start'})); }
   function scrollTo(id:string){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
   function logout(){localStorage.removeItem('mongolz-demo-session-v1');setUser(null);setProfileOpen(false);}
+  function openAuth(mode:'login'|'register'='login'){setAuthMode(mode);setAuthOpen(true);}
 
   return <div className="appShell stakeInspired2026">
     <header className="topbar">
@@ -61,7 +63,7 @@ export default function CasinoApp(){
       <div className="modeSwitch"><button className="active">♠ {lang==='mn'?'Казино':'Casino'}</button><button disabled>⚽ {lang==='mn'?'Спорт':'Sports'} <small>SOON</small></button></div>
       <div className="searchWrap"><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={t.search}/></div>
       <div className="topActions"><span className="onlinePill"><i/>ONLINE</span>
-        {!user?<div className="headerAuth2026"><button className="headerLogin2026" onClick={()=>setAuthOpen(true)}>{lang==='mn'?'Нэвтрэх':'Sign in'}</button><button className="headerRegister2026" onClick={()=>setAuthOpen(true)}>{lang==='mn'?'Бүртгүүлэх':'Register'}</button></div>:<button className="headerUser2026" onClick={()=>setProfileOpen(true)}><span>{user.username.slice(0,1).toUpperCase()}</span><b>{user.username}</b></button>}
+        {!user?<div className="headerAuth2026"><button className="headerLogin2026" onClick={()=>openAuth('login')}>{lang==='mn'?'Нэвтрэх':'Sign in'}</button><button className="headerRegister2026" onClick={()=>openAuth('register')}>{lang==='mn'?'Бүртгүүлэх':'Register'}</button></div>:<button className="headerUser2026" onClick={()=>setProfileOpen(true)}><span>{user.username.slice(0,1).toUpperCase()}</span><b>{user.username}</b></button>}
         <div className="langSwitch"><button className={lang==='mn'?'on':''} onClick={()=>setLang('mn')}>MN</button><button className={lang==='en'?'on':''} onClick={()=>setLang('en')}>EN</button></div>
         <button className="balanceButton" onClick={()=>setCashier(true)}><span>{t.balance}</span><b>₮ {balance.toLocaleString()}</b></button>
         <button className="goldButton" onClick={()=>setCashier(true)}>{t.deposit}</button>
@@ -70,7 +72,7 @@ export default function CasinoApp(){
 
     <aside className="sidebar premiumSidebar2026">
       <div className="sideAccount2026">
-        {user?<button className="sideUserCard2026" onClick={()=>setProfileOpen(true)}><span className="sideAvatar2026">{user.username.slice(0,1).toUpperCase()}</span><span><b>{user.username}</b><small>{lang==='mn'?'Demo хэрэглэгч':'Demo player'}</small></span><i>›</i></button>:<div className="sideGuest2026"><div><span className="sideAvatar2026 guest">＋</span><span><b>{lang==='mn'?'Тавтай морил':'Welcome'}</b><small>{lang==='mn'?'Тоглож эхлэхийн тулд нэвтэр':'Sign in to personalize'}</small></span></div><div className="sideGuestActions2026"><button onClick={()=>setAuthOpen(true)}>{lang==='mn'?'Нэвтрэх':'Sign in'}</button><button className="primary" onClick={()=>setAuthOpen(true)}>{lang==='mn'?'Бүртгүүлэх':'Register'}</button></div></div>}
+        {user?<button className="sideUserCard2026" onClick={()=>setProfileOpen(true)}><span className="sideAvatar2026">{user.username.slice(0,1).toUpperCase()}</span><span><b>{user.username}</b><small>{lang==='mn'?'Demo хэрэглэгч':'Demo player'}</small></span><i>›</i></button>:<div className="sideGuest2026"><div><span className="sideAvatar2026 guest">＋</span><span><b>{lang==='mn'?'Тавтай морил':'Welcome'}</b><small>{lang==='mn'?'Тоглож эхлэхийн тулд нэвтэр':'Sign in to personalize'}</small></span></div><div className="sideGuestActions2026"><button onClick={()=>openAuth('login')}>{lang==='mn'?'Нэвтрэх':'Sign in'}</button><button className="primary" onClick={()=>openAuth('register')}>{lang==='mn'?'Бүртгүүлэх':'Register'}</button></div></div>}
       </div>
 
       <div className="sideSection2026"><span className="sideLabel2026">{lang==='mn'?'КАЗИНО':'CASINO'}</span><nav>
@@ -86,7 +88,7 @@ export default function CasinoApp(){
         <button onClick={()=>setHistoryOpen(true)}><i>↺</i><span>{lang==='mn'?'Сүүлд тоглосон':'Recently played'}</span></button>
         <button onClick={()=>scrollTo('max-wins')}><i>⚡</i><span>MAX WIN</span></button>
         <button onClick={()=>scrollTo('promotions')}><i>🎁</i><span>{lang==='mn'?'Урамшуулал':'Promotions'}</span><em>NEW</em></button>
-        <button onClick={()=>setProfileOpen(true)}><i>★</i><span>{lang==='mn'?'VIP & Rewards':'VIP & Rewards'}</span></button>
+        <button onClick={()=>user?setProfileOpen(true):openAuth('register')}><i>★</i><span>{lang==='mn'?'VIP & Rewards':'VIP & Rewards'}</span></button>
       </nav></div>
 
       <div className="sideSection2026 sideUtilities2026"><span className="sideLabel2026">{lang==='mn'?'ТУСЛАМЖ':'SUPPORT'}</span><nav>
@@ -155,9 +157,9 @@ export default function CasinoApp(){
       <footer className="stakeFooter"><div className="footerBrand">MONGOLZ</div><div className="footerCols"><div><b>CASINO</b><span>Originals</span><span>Slots</span><span>Live Casino</span><span>Table Games</span></div><div><b>SUPPORT</b><span>Demo Help</span><span>Fairness Info</span><span>Responsible Play</span><span>18+</span></div><div><b>ABOUT</b><span>Trust Center</span><span>MN / EN</span><span>Local Demo Wallet</span><span>No Real Money</span></div></div><p>{t.notice}</p><small>© 2026 MONGOLZ Demo Casino</small></footer>
     </main>
 
-    <nav className="mobileNav"><button className="providerMobileLink" onClick={()=>showProviders('')}>◈<span>{lang==='mn'?'Games':'Games'}</span></button><button onClick={()=>{setCategory('All');window.scrollTo({top:0,behavior:'smooth'})}}>⌂<span>{t.casino}</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>user?setProfileOpen(true):setAuthOpen(true)}>{user?'●':'♙'}<span>{user?user.username.slice(0,8):(lang==='mn'?'Account':'Account')}</span></button></nav>
+    <nav className="mobileNav"><button className="providerMobileLink" onClick={()=>showProviders('')}>◈<span>{lang==='mn'?'Games':'Games'}</span></button><button onClick={()=>{setCategory('All');window.scrollTo({top:0,behavior:'smooth'})}}>⌂<span>{t.casino}</span></button><button onClick={()=>setCashier(true)} className="mobileWallet">₮<span>{balance.toLocaleString()}</span></button><button onClick={()=>setHistoryOpen(true)}>↺<span>{t.history}</span></button><button onClick={()=>user?setProfileOpen(true):openAuth('login')}>{user?'●':'♙'}<span>{user?user.username.slice(0,8):(lang==='mn'?'Account':'Account')}</span></button></nav>
 
-    {authOpen&&<div className="modalBackdrop"><div className="sheet authSheet2026"><button className="x" onClick={()=>setAuthOpen(false)}>×</button><AuthPanel lang={lang} onClose={()=>setAuthOpen(false)} onSession={setUser}/></div></div>}
+    {authOpen&&<div className="modalBackdrop"><div className="sheet authSheet2026"><button className="x" onClick={()=>setAuthOpen(false)}>×</button><AuthPanel lang={lang} initialMode={authMode} onClose={()=>setAuthOpen(false)} onSession={setUser}/></div></div>}
     {profileOpen&&<div className="modalBackdrop"><div className="sheet profileSheet2026"><button className="x" onClick={()=>setProfileOpen(false)}>×</button><span className="eyebrow">MONGOLZ PROFILE</span><div className="profileHero2026"><span>{user?.username?.slice(0,1).toUpperCase()||'G'}</span><div><h2>{user?.username||(lang==='mn'?'Зочин':'Guest')}</h2><p>{user?.email||(lang==='mn'?'Бүртгэл үүсгэж profile нээнэ үү.':'Create an account to unlock your profile.')}</p></div></div><div className="profileStats2026"><div><b>{history.length}</b><span>{lang==='mn'?'Тоглолт':'Plays'}</span></div><div><b>₮ {balance.toLocaleString()}</b><span>{lang==='mn'?'Demo баланс':'Demo balance'}</span></div><div><b>{history.filter(h=>h.result>0).length}</b><span>{lang==='mn'?'Хожил':'Wins'}</span></div></div><div className="profileActions2026"><button onClick={()=>{setProfileOpen(false);setHistoryOpen(true)}}>↺ {lang==='mn'?'Тоглолтын түүх':'Play history'}</button><button onClick={()=>{setProfileOpen(false);scrollTo('trust-compliance')}}>✓ Trust Center</button><button onClick={()=>setLang(lang==='mn'?'en':'mn')}>文 {lang==='mn'?'English':'Монгол'}</button>{user&&<button className="danger" onClick={logout}>↪ {lang==='mn'?'Гарах':'Sign out'}</button>}</div><div className="profileNote2026">★ VIP / Rewards — {lang==='mn'?'production loyalty system холбоход бэлэн UI.':'UI ready for a future production loyalty system.'}</div></div></div>}
     {supportOpen&&<div className="modalBackdrop"><div className="sheet supportSheet2026"><button className="x" onClick={()=>setSupportOpen(false)}>×</button><span className="eyebrow">HELP CENTER</span><h2>{lang==='mn'?'Тусламж & Аюулгүй байдал':'Help & Safety'}</h2><div className="supportCards2026"><button onClick={()=>{setSupportOpen(false);scrollTo('trust-compliance')}}><b>✓ Trust Center</b><span>{lang==='mn'?'Лиценз, RNG, KYC статус':'Licence, RNG and KYC status'}</span></button><button onClick={()=>setCashier(true)}><b>₮ Demo Wallet</b><span>{lang==='mn'?'Sandbox cashier':'Sandbox cashier'}</span></button><button onClick={()=>setHistoryOpen(true)}><b>↺ {lang==='mn'?'Түүх':'History'}</b><span>{lang==='mn'?'Local session history':'Local session history'}</span></button></div><div className="noticeBox">18+ • DEMO ONLY • {lang==='mn'?'Бодит мөнгө ашиглахгүй.':'No real money is processed.'}</div></div></div>}
     {active&&<div className="modalBackdrop"><div className="gameModal"><button className="x" onClick={()=>setActive(null)}>×</button><DemoGame game={active} lang={lang} balance={balance} settle={settle}/></div></div>}

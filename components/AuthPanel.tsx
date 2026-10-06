@@ -17,11 +17,12 @@ export function loadSession():DemoUser|null{
   try{return JSON.parse(localStorage.getItem(SESSION)||'null')}catch{return null}
 }
 
-export default function AuthPanel({lang,onClose,onSession}:{lang:'mn'|'en';onClose:()=>void;onSession:(u:DemoUser|null)=>void}){
- const [mode,setMode]=useState<'login'|'register'>('login');
+export default function AuthPanel({lang,initialMode='login',onClose,onSession}:{lang:'mn'|'en';initialMode?:'login'|'register';onClose:()=>void;onSession:(u:DemoUser|null)=>void}){
+ const [mode,setMode]=useState<'login'|'register'>(initialMode);
  const [username,setUsername]=useState(''),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState('');
  const [error,setError]=useState(''),[busy,setBusy]=useState(false);
  const mn=lang==='mn';
+ useEffect(()=>{setMode(initialMode);setError('')},[initialMode]);
  useEffect(()=>setError(''),[mode]);
  async function submit(e:React.FormEvent){
   e.preventDefault();setError('');
