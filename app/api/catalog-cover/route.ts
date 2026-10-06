@@ -32,6 +32,7 @@ export async function GET(req:Request){
  const id=new URL(req.url).searchParams.get('id')||'';
  const game=games.find(g=>g.id===id);
  if(!game)return fallback(null);
+ if(game.provider==='Play’n GO')return fallback(game);
  if(!game.url)return fallback(game);
  try{
   const page=await fetch(game.url,{headers:{'user-agent':'Mozilla/5.0 (compatible; MONGOLZ-Demo/1.0; +https://github.com/ssboroo/mongolz)','accept':'text/html'},next:{revalidate:86400}});

@@ -7,7 +7,6 @@ const domains:Record<string,string>={
  'Pragmatic Play Live':'https://www.pragmaticplay.com/favicon.ico',
  'Evolution':'https://games.evolution.com/favicon.ico',
  'BGaming':'https://bgaming.com/favicon.ico',
- "Play’n GO":'https://www.playngo.com/favicon.ico',
  'NetEnt':'https://www.netent.com/favicon.ico',
  'Red Tiger':'https://www.redtiger.com/favicon.ico',
  'Nolimit City':'https://www.nolimitcity.com/favicon.ico',
