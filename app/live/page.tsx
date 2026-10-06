@@ -1,2 +1,2 @@
-import ProviderHub from '@/components/ProviderHub';
-export default function Page(){return <ProviderHub initialCategory="live"/>;}
+import CasinoApp from '@/components/CasinoApp';
+export default function Page(){return <CasinoApp/>;}
