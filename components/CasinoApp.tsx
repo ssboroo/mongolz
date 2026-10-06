@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { games, type GameId, type GameMeta } from '@/lib/games';
 import DemoGame from './DemoGame';
 import ProviderSection from './ProviderSection';
+import WinFeed from './WinFeed';
+import ComplianceCenter from './ComplianceCenter';
 
 type Lang='mn'|'en';
 type History={id:string; game:string; bet:number; result:number; at:string};
@@ -82,12 +84,16 @@ export default function CasinoApp(){
 
       <section className="trustStrip"><span><i className="pulseDot"/> LIVE DEMO</span><span>◆ MONGOLZ ORIGINALS</span><span>◉ LOCAL WALLET</span><span>文 MN / EN</span><span>✓ NO REAL MONEY</span></section>
 
+      <WinFeed lang={lang} history={history}/>
+
       <section className="gamesSection">
         <div className="sectionTitle"><div><span className="eyebrow">MONGOLZ COLLECTION</span><h2>{t.featured}</h2></div><div className="tabs">{['All','Originals','Table','Slots'].map(c=><button key={c} onClick={()=>setCategory(c)} className={category===c?'active':''}>{c==='All'?t.all:c==='Originals'?t.originals:c==='Table'?t.tables:t.slots}</button>)}</div></div>
         <div className="gameGrid">{visible.map((g,i)=><button className={`gameCard game-${i%8}`} key={g.id} onClick={()=>setActive(g)}><div className="gameArt"><span className="tag">{g.tag}</span><div className="gameIcon">{g.icon}</div><div className="ornament">◆ ◇ ◆</div><span className="playCircle">▶</span></div><div className="gameInfo"><b>{lang==='mn'?g.mn:g.en}</b><span>{lang==='mn'?g.blurbMn:g.blurbEn}</span></div></button>)}</div>
       </section>
 
       <ProviderSection lang={lang} balance={balance} settle={settle} initialCategory={providerCategory}/>
+
+      <ComplianceCenter lang={lang}/>
 
       <footer><div className="footerBrand">MONGOLZ</div><p>{t.notice}</p><span>Demo build • v1.0</span></footer>
     </main>
