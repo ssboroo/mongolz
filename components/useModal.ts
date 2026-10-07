@@ -1,28 +1,31 @@
 'use client';
-import {useEffect} from 'react';
-/** Lock scrolling, restore focus and keep keyboard navigation in the active dialog. */
-export default function useModal(open:boolean,close:()=>void){
+import {useEffect,useRef} from 'react';
+let locks=0;
+let savedOverflow='';
+/** Handle only the top dialog; nested dialogs share one scroll lock. */
+export default function useModal(open:boolean|string,close:()=>void){
+ const closeRef=useRef(close);
+ useEffect(()=>{closeRef.current=close},[close]);
  useEffect(()=>{
   if(!open)return;
   const previous=document.activeElement as HTMLElement|null;
-  const overflow=document.body.style.overflow;
-  document.body.style.overflow='hidden';
+  if(locks++===0){savedOverflow=document.body.style.overflow;document.body.style.overflow='hidden'}
   const dialogs=document.querySelectorAll<HTMLElement>('.modalBackdrop');
   const dialog=dialogs[dialogs.length-1];
-  const focusable=()=>Array.from(dialog?.querySelectorAll<HTMLElement>('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),[tabindex="0"]')||[]).filter(el=>el.getClientRects().length>0);
-  focusable()[0]?.focus();
+  const nodes=()=>Array.from(dialog?.querySelectorAll<HTMLElement>('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),[tabindex="0"]')||[]).filter(el=>el.getClientRects().length>0);
+  const frame=requestAnimationFrame(()=>nodes()[0]?.focus());
   const onKey=(event:KeyboardEvent)=>{
-   if(event.key==='Escape'){event.preventDefault();close();}
+   const all=document.querySelectorAll('.modalBackdrop');
+   if(all[all.length-1]!==dialog)return;
+   if(event.key==='Escape'){event.preventDefault();closeRef.current()}
    if(event.key==='Tab'){
-    const nodes=focusable(),first=nodes[0],last=nodes[nodes.length-1];
-    if(!first)return;
-    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+    const list=nodes(),first=list[0],last=list[list.length-1];if(!first)return;
+    if(!dialog.contains(document.activeElement)){event.preventDefault();first.focus()}
+    else if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
     else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
    }
   };
   document.addEventListener('keydown',onKey);
-  return()=>{document.removeEventListener('keydown',onKey);document.body.style.overflow=overflow;previous?.focus()};
- // Closing handlers refer only to React setters; they do not depend on render data.
- // eslint-disable-next-line react-hooks/exhaustive-deps
+  return()=>{cancelAnimationFrame(frame);document.removeEventListener('keydown',onKey);if(--locks===0)document.body.style.overflow=savedOverflow;if(previous?.isConnected)previous.focus()};
  },[open]);
 }

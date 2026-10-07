@@ -1,5 +1,6 @@
 /** Local, generated illustration assets. These do not represent licensed provider game artwork. */
-export function artworkFor(game:{id:string;name:string;category:string}){
+export function artworkFor(game:{id:string;name:string;category:string;url?:string}){
+ if(game.url?.startsWith('/royal/hd/'))return game.url;
  const name=game.name.toLowerCase();
  if(game.category==='live'||game.category==='table'){
   const index=/roulette/.test(name)?0:/blackjack|21/.test(name)?1:/baccarat/.test(name)?2:3;

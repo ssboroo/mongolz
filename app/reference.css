@@ -108,3 +108,75 @@
 @media(max-width:1450px){.referenceLobby .royalHero h1{font-size:56px}}
 @media(max-width:900px){.referenceLobby .royalHero h1{font-size:45px}}
 @media(max-width:760px){.referenceLobby .royalHero h1{font-size:58px}.referenceLobby .royalHeroCopy p{font-size:11px}}
+
+/* Refined responsive header: logo, one shared search, and compact account controls. */
+.referenceLobby{--header:78px}
+.referenceLobby .royalTopbar.refinedHeader{display:grid;grid-template-columns:210px minmax(200px,1fr) auto;gap:20px;height:var(--header);padding:0 24px;background:linear-gradient(180deg,#111710f5,#080d10f2);border-bottom:1px solid #92733666;box-shadow:0 5px 26px #0006;z-index:80}
+.headerIdentity{display:flex;align-items:center;gap:10px;min-width:0}
+.referenceLobby .refinedHeader .brand{display:flex;align-items:center;gap:10px;width:auto;min-width:0;padding:0;margin:0;background:none;height:auto}
+.referenceLobby .refinedHeader .brand>*{opacity:1}
+.referenceLobby .refinedHeader .brandMark{width:45px;height:46px;flex-shrink:0;background:linear-gradient(135deg,#473719,#100f08);border:1px solid #dfbd60;border-radius:11px;color:#ffe4a0;box-shadow:inset 0 1px #ffffd422,0 0 20px #dba43b20;font:900 35px Georgia}
+.referenceLobby .refinedHeader .brand>span:last-child{display:block}
+.referenceLobby .refinedHeader .brand b{font-size:21px;color:#ffe293;letter-spacing:1.7px;line-height:1.1}
+.referenceLobby .refinedHeader .brand small{font-size:7px;color:#aaa897;letter-spacing:3px;margin-top:5px;line-height:1}
+.referenceLobby .refinedHeader .headerSearch{display:flex!important;height:43px;width:100%;max-width:620px;border:1px solid #6d6744!important;border-radius:10px;padding:0 14px;background:#080e0f!important;gap:11px;position:relative;box-shadow:inset 0 1px 3px #0006}
+.referenceLobby .refinedHeader .headerSearch:focus-within{border-color:#dbb656!important;box-shadow:0 0 0 3px #e6b63312}
+.referenceLobby .refinedHeader .headerSearch input{font-size:12px;line-height:1.3;flex:1;min-width:0;color:#fff3d6;outline:none;height:100%}
+.referenceLobby .refinedHeader .headerSearch input::placeholder{color:#858b83}
+.referenceLobby .refinedHeader .clearSearch{display:grid;place-items:center;flex-shrink:0;border:0;padding:0;width:25px;height:25px;border-radius:6px;background:#252a21;color:#cfceb5}
+.referenceLobby .refinedHeader .clearSearch svg{width:15px;height:15px;color:inherit}
+.referenceLobby .refinedHeader .royalTopActions{gap:9px;margin:0;min-width:0}
+.referenceLobby .refinedHeader .royalMiniBtn,.referenceLobby .refinedHeader .royalIconBtn,.referenceLobby .refinedHeader .royalLang,.referenceLobby .refinedHeader .headerLogin2026{height:40px;border:1px solid #4b5338;border-radius:8px;background:linear-gradient(#171f19,#0b1010);font-size:11px;color:#e9e4cf;white-space:nowrap}
+.referenceLobby .refinedHeader .headerHelp{width:40px;padding:0;display:flex}
+.referenceLobby .refinedHeader .royalLang{display:flex!important;padding:0 10px;gap:7px;min-width:69px;font-size:11px}
+.referenceLobby .refinedHeader .royalLang svg{height:16px;width:16px;color:#cab670}
+.referenceLobby .refinedHeader .royalLang>span{font-size:13px;color:#b7ab75}
+.referenceLobby .refinedHeader .royalBalance{display:flex!important;height:43px;min-width:155px;max-width:210px;border:1px solid #9b7d38!important;border-radius:9px;gap:9px;padding:0 11px!important;background:linear-gradient(135deg,#33290d,#111914)!important;overflow:hidden;text-align:left}
+.referenceLobby .refinedHeader .walletCoin{display:grid!important;place-items:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid #e6c568;background:radial-gradient(circle at 30% 25%,#f7dc7f,#ad7927);color:#382700!important;font-size:17px!important;font-weight:900;box-shadow:inset 0 0 0 2px #c3913866}
+.referenceLobby .refinedHeader .walletAmount{display:flex!important;flex-direction:column;min-width:0;gap:3px}
+.referenceLobby .refinedHeader .walletAmount small{font-size:6px;letter-spacing:1.2px;color:#aeaa83}
+.referenceLobby .refinedHeader .walletAmount b{font-size:12px;letter-spacing:.3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#ffeab0!important;font-variant-numeric:tabular-nums}
+.referenceLobby .refinedHeader .walletChevron{display:block!important;margin-left:auto;color:#c1b473!important;font-size:14px!important}
+.referenceLobby .refinedHeader .headerLogin2026{padding:0 16px;font-size:11px}
+.referenceLobby .refinedHeader .headerRegister2026{display:flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 19px;background:linear-gradient(#ffe997,#e4b449);border:1px solid #ffebae;border-radius:8px;color:#302403;font-size:11px;font-weight:900;white-space:nowrap;box-shadow:0 4px 16px #e4b44916}
+.referenceLobby .refinedHeader .headerRegister2026 svg{display:none;width:18px;height:18px}
+.referenceLobby .refinedHeader .headerUser2026{display:flex;align-items:center;gap:8px;height:41px;max-width:160px;min-width:0;padding:0 9px;border:1px solid #706337;background:#121b14;border-radius:8px;color:#ffdf8c}
+.referenceLobby .refinedHeader .headerUser2026>span{display:grid;place-items:center;height:28px;width:28px;flex-shrink:0;font-size:12px;border-radius:50%;background:#806a2b;color:#fff3bd}
+.referenceLobby .refinedHeader .headerUser2026>b{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.referenceLobby .refinedHeader .headerUser2026>svg{height:13px;width:13px;transform:rotate(90deg)}
+.headerMenu,.navOverlay{display:none}
+.referenceLobby .royalContent section{scroll-margin-top:calc(var(--header) + 18px)}
+.referenceLobby .cannotBet .gameAction{opacity:.4;pointer-events:none}
+.referenceLobby .betBar input:disabled,.referenceLobby .betBar button:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:1450px){.referenceLobby .refinedHeader .headerPromo{display:none}.referenceLobby .royalTopbar.refinedHeader{grid-template-columns:195px minmax(190px,1fr) auto;gap:16px;padding:0 20px}.referenceLobby .refinedHeader .brand b{font-size:19px}.referenceLobby .refinedHeader .royalTopActions{gap:7px}}
+@media(max-width:1100px){.referenceLobby .royalTopbar.refinedHeader{grid-template-columns:190px minmax(180px,1fr) auto;gap:12px;padding:0 18px}.referenceLobby .refinedHeader .headerHelp,.referenceLobby .refinedHeader .headerLogin2026{display:none!important}.referenceLobby .refinedHeader .royalBalance{min-width:140px}.referenceLobby .refinedHeader .headerRegister2026{padding:0 14px}}
+@media(max-width:850px){.referenceLobby .royalTopbar.refinedHeader{grid-template-columns:175px minmax(140px,1fr) auto;gap:10px;padding:0 14px}.referenceLobby .refinedHeader .brandMark{width:38px;height:40px;font-size:30px}.referenceLobby .refinedHeader .brand b{font-size:17px}.referenceLobby .refinedHeader .royalBalance{min-width:124px}.referenceLobby .refinedHeader .walletAmount small{font-size:5px}.referenceLobby .refinedHeader .royalLang{min-width:52px;padding:0 8px}.referenceLobby .refinedHeader .royalLang svg{display:none}.referenceLobby .refinedHeader .headerRegister2026{padding:0 11px;font-size:10px}}
+@media(max-width:760px){
+ .referenceLobby{--header:112px}
+ .referenceLobby .royalTopbar.refinedHeader{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:54px 40px;gap:0 9px;padding:5px 12px 11px;align-items:center;height:var(--header)}
+ .headerIdentity{gap:7px}
+ .referenceLobby .refinedHeader .headerMenu{display:grid;place-items:center;flex-shrink:0;width:30px;height:34px;border:1px solid #4b4c30;border-radius:7px;background:#141b15;color:#f3cc63;padding:0}
+ .referenceLobby .refinedHeader .headerMenu svg{width:18px;height:18px}
+ .referenceLobby .refinedHeader .brand{gap:7px}
+ .referenceLobby .refinedHeader .brandMark{width:32px;height:35px;font-size:25px;border-radius:7px}
+ .referenceLobby .refinedHeader .brand b{font-size:16px;letter-spacing:1px}
+ .referenceLobby .refinedHeader .brand small{font-size:5px;letter-spacing:1.5px;margin-top:4px}
+ .referenceLobby .refinedHeader .headerSearch{grid-column:1/-1;grid-row:2;display:flex!important;height:39px;max-width:none;padding:0 11px;border-radius:8px;left:auto;right:auto;top:auto}
+ .referenceLobby .refinedHeader .headerSearch input{font-size:12px}
+ .referenceLobby .refinedHeader .royalTopActions{grid-column:2;grid-row:1;gap:7px;justify-self:end}
+ .referenceLobby .refinedHeader .royalBalance{display:none!important}
+ .referenceLobby .refinedHeader .royalLang{height:34px;min-width:43px;padding:0 6px;gap:4px;font-size:10px}
+ .referenceLobby .refinedHeader .headerRegister2026{height:34px;padding:0 11px;font-size:10px;border-radius:7px}
+ .referenceLobby .refinedHeader .headerUser2026{height:34px;max-width:103px;gap:6px;padding:0 6px}
+ .referenceLobby .refinedHeader .headerUser2026>span{height:24px;width:24px;font-size:11px}
+ .referenceLobby .refinedHeader .headerUser2026>b{font-size:10px}
+ .referenceLobby .refinedHeader .headerUser2026>svg{display:none}
+ .referenceLobby.menuIsOpen .royalSidebar{display:flex;width:245px;z-index:75;top:var(--header);height:calc(100dvh - var(--header));padding:16px 12px;box-shadow:20px 0 70px #0008}
+ .referenceLobby.menuIsOpen .royalSideNav button{justify-content:flex-start;gap:15px;padding:0 14px}
+ .referenceLobby.menuIsOpen .royalSideNav button span{display:inline!important;font-size:12px}
+ .referenceLobby.menuIsOpen .royalVipCard{display:none!important}
+ .referenceLobby.menuIsOpen .navOverlay{display:block;position:fixed;inset:var(--header) 0 0;z-index:70;border:0;background:#020709ad;backdrop-filter:blur(3px);width:100%;height:calc(100dvh - var(--header));padding:0;border-radius:0}
+ .referenceLobby .royalMobileNav svg{width:22px;height:22px;margin:auto;display:block}
+}
+@media(max-width:360px){.referenceLobby .royalTopbar.refinedHeader{padding-left:9px;padding-right:9px;gap:0 6px}.referenceLobby .refinedHeader .brand b{font-size:14px}.referenceLobby .refinedHeader .brand small{font-size:4px}.referenceLobby .refinedHeader .brandMark{width:28px;height:32px;font-size:23px}.referenceLobby .refinedHeader .headerRegister2026{padding:0 8px;font-size:9px}.referenceLobby .refinedHeader .royalLang{font-size:9px;min-width:39px}.referenceLobby .refinedHeader .headerUser2026{max-width:85px}.referenceLobby .refinedHeader .royalTopActions{gap:5px}}
+.referenceLobby .footerCols button{display:block;text-align:left;margin:7px 0 0;padding:0;border:0;background:none;color:#aaa995;font-size:11px;line-height:1.5}.referenceLobby .footerCols button:hover{color:#ffde81;text-decoration:underline}

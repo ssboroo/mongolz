@@ -1,5 +1,6 @@
 import type {CSSProperties} from 'react';
 const paths:Record<string,string>={
+ menu:'M3 6h18M3 12h18M3 18h18',close:'m6 6 12 12M18 6 6 18',user:'M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm-9 9v-2a9 9 0 0 1 18 0v2',globe:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM2 12h20M12 2c6 6 6 14 0 20-6-6-6-14 0-20Z',help:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm-3-14a3 3 0 0 1 6 0c0 2-3 2-3 5M12 17h.01',
  home:'M3 10 12 3l9 7M5 9v12h5v-7h4v7h5V9',
  diamond:'m3 8 5-5h8l5 5-9 13L3 8Zm0 0h18M8 3l4 18 4-18',
  live:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm-3-6V8l7 4-7 4Z',
